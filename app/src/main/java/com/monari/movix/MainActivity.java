@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);//run all of the default behaviors for an activity
         setContentView(R.layout.activity_main);//tells the activity which layout to use for the device screen
 
-        mGetStartedButton = (Button) findViewById(R.id.getStartedButton);//(Button) typecasts our view as Button
+        mGetStartedButton = (Button) findViewById(R.id.signUpButton);//(Button) typecasts our view as Button
         mGetStartedButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

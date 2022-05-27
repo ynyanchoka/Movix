@@ -28,6 +28,7 @@ public class SignupActivity extends AppCompatActivity {
         userPassword = (EditText)findViewById(R.id.userPassword);
         name = (EditText)findViewById(R.id.name);
 
+
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
