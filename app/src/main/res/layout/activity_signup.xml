@@ -4,71 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".SignupActivity"
     android:background="#18172e">
 
     <TextView
-        android:id="@+id/Welcome"
+        android:id="@+id/WelcomeSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
         android:padding="5dp"
-        android:text="Welcome to Movix \n Log in here"
+        android:text="Welcome to Movix \n Sign up here"
         android:textAlignment="center"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp" />
-
-    <!--edit text for user name-->
     <EditText
-        android:id="@+id/idUserName"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Welcome"
+        android:layout_below="@id/WelcomeSignUp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
-        android:hint="Enter UserName"
+        android:hint="Enter Name"
+        android:textColor="@color/colorSecondaryText"
+        android:textColorHint="@color/colorSecondaryText"
+        app:backgroundTint = "@color/colorSecondaryText"
+        android:inputType="textPersonName" />
+
+
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Enter username"
+        android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
         android:inputType="textEmailAddress" />
     <EditText
-        android:id="@+id/idUserEmail"
+        android:id="@+id/userEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idUserName"
+        android:layout_below="@id/userName"
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:hint="Enter Email"
+        android:textColor="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         android:inputType="textEmailAddress" />
 
     <!--edit text for user password-->
     <EditText
-        android:id="@+id/idUserPassword"
+        android:id="@+id/userPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idUserEmail"
+        android:layout_below="@id/userEmail"
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint = "@color/colorSecondaryText"
         android:hint="Enter Password"
+        android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         android:inputType="textPassword" />
 
     <!--button to register our new user-->
     <Button
-        android:id="@+id/idLoginButton"
+        android:id="@+id/signUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idUserPassword"
+        android:layout_below="@id/userPassword"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:text="LOGIN"
+        android:text="SIGNUP"
         app:backgroundTint="@color/colorDivider"
         android:textAllCaps="false" />
 
