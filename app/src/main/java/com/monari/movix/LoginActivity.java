@@ -17,7 +17,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.idLoginButton) Button midLoginButton;
     @BindView(R.id.idUserEmail) EditText midUserEmail;
@@ -36,59 +36,28 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        midLoginButton.setOnClickListener(new View.OnClickListener() {
+        midLoginButton.setOnClickListener(this);
+    }
             @Override
             public void onClick(View view) {
+                if(view == midLoginButton) {
+                    String username = midUserName.getText().toString();
+                    String password = imdUserPassword.getText().toString();
+                    String email = midUserEmail.getText().toString();
+                    if (username.isEmpty() || password.isEmpty()|| email.isEmpty() ){
+                        Toast.makeText(getApplicationContext(), "All the fields are required", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
 
-                Intent intent = new Intent(LoginActivity.this, MoviesActivity.class);
-                startActivity(intent);
+                        Intent intent = new Intent(LoginActivity.this, MoviesActivity.class);
+                        intent.putExtra("username", username);
+                        intent.putExtra("password", password);
+                        intent.putExtra("email", email);
+
+                        startActivity(intent);
+                    }
 
             }
-        });
-
-//
-//
-//
-//        midLoginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                checkInput ();
-//
-//            }
-//        });
-//
-//    }
-//    boolean isEmail(EditText text) {
-//        CharSequence email = text.getText().toString();
-//        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-//    }
-//
-//    boolean isEmpty(EditText text) {
-//        CharSequence str = text.getText().toString();
-//        return TextUtils.isEmpty(str);
-//    }
-
-//    public void checkInput (){
-//        String user = idUserName.getText().toString().trim();
-//        String email = idUserEmail.getText().toString().trim();
-//        String pass = idUserPassword.getText().toString().trim();
-//
-//        if(user.equals("")||email.equals("")||pass.equals("")){
-//            Toast.makeText(LoginActivity.this, "Required", Toast.LENGTH_SHORT).show();
-//        }
-
-//        if (isEmail(idUserEmail) == false|| idUserEmail.equals("")) {
-//            idUserEmail.setError("Enter valid email!");
-//        }
-//
-//        if (isEmpty(idUserName)) {
-//            Toast t = Toast.makeText(this, "You must enter username to login!", Toast.LENGTH_SHORT);
-//            t.show();
-//        }
-//        if (isEmpty(idUserPassword)) {
-//            Toast t = Toast.makeText(this, "Password required", Toast.LENGTH_SHORT);
-//            t.show();
-//        }
 
     }
 }
