@@ -13,7 +13,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.idSignUpButton) Button midSignUpButton;
     @BindView(R.id.name) EditText mname;
     @BindView(R.id.userName) EditText muserName;
@@ -36,57 +36,28 @@ public class SignupActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-                //lead to login activity
-        midSignUpButton.setOnClickListener(new View.OnClickListener() {
+        //lead to login activity
+        midSignUpButton.setOnClickListener(this);
+    }
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+             if (view == midSignUpButton){
+                 String name = mname.getText().toString();
+                 String userName = muserName.getText().toString();
+                 String userEmail = muserEmail.getText().toString();
+                 String userPassword = muserPassword.getText().toString();
+                 if (name.isEmpty()||userName.isEmpty()||userEmail.isEmpty()||userPassword.isEmpty()) {
+                     Toast.makeText(getApplicationContext(), "All the fields are required", Toast.LENGTH_SHORT).show();
+                 }else{
 
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent);
+                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                     intent.putExtra("name", name);
+                     intent.putExtra("userName", userName);
+                     intent.putExtra("userEmail", userEmail);
+                     intent.putExtra("userPassword", userPassword);
+                     startActivity(intent);
             }
-        });
+        }
 
-
-
-//
-//
-//        idSignUpButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                checkUserInput ();
-//
-//            }
-//        });
-//    }
-//    boolean isEmail(EditText text) {
-//        CharSequence email = text.getText().toString();
-//        return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-//    }
-//
-//    boolean isEmpty(EditText text) {
-//        CharSequence str = text.getText().toString();
-//        return TextUtils.isEmpty(str);
-//    }
-//
-//    public void checkUserInput (){
-//
-//        if (isEmail(userEmail) == false|| userEmail.equals("")) {
-//            userEmail.setError("Enter valid email!");
-//        }
-//
-//        if (isEmpty(userName)) {
-//            Toast t = Toast.makeText(this, "You must enter username to signup!", Toast.LENGTH_SHORT);
-//            t.show();
-//        }
-//        if (isEmpty(name)) {
-//            Toast t = Toast.makeText(this, "Name required", Toast.LENGTH_SHORT);
-//            t.show();
-//        }
-//        if (isEmpty(userPassword)) {
-//            Toast t = Toast.makeText(this, "Password required", Toast.LENGTH_SHORT);
-//            t.show();
-//        }
-//
-//
     }
 }
