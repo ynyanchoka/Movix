@@ -50,9 +50,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     else {
 
                         Intent intent = new Intent(LoginActivity.this, MoviesActivity.class);
-                        intent.putExtra("username", username);
-                        intent.putExtra("password", password);
-                        intent.putExtra("email", email);
+//                        intent.putExtra("username", username);
+//                        intent.putExtra("password", password);
+//                        intent.putExtra("email", email);
 
                         startActivity(intent);
                     }

@@ -1,7 +1,12 @@
 package MovixArrayAdapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -15,6 +20,7 @@ public class MovixArrayAdapter extends ArrayAdapter  {
     private String[] mYears;
     private String[] mOverviews;
     private String[] mRatings;
+
 
     public MovixArrayAdapter( Context mContext, int resource, String[] mMovies, String[] mGenres, String[] mYears, String[] mOverviews, String[] mRatings) {
         super(mContext, resource);
@@ -40,5 +46,14 @@ public class MovixArrayAdapter extends ArrayAdapter  {
     @Override
     public int getCount() {
         return mMovies.length;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = super.getView(position, convertView, parent);
+
+        // Here all your customization on the View
+
+        return view;
     }
 }
