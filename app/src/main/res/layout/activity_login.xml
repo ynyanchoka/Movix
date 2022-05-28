@@ -14,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
         android:padding="5dp"
-        android:text="Welcome to Movix \n Log in here"
+        android:text="Welcome Back"
         android:textAlignment="center"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp" />
@@ -28,10 +28,11 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/colorSecondaryText"
         android:hint="Enter UserName"
-        android:textColorHint="@color/colorSecondaryText"
-        android:backgroundTint = "@color/colorSecondaryText"
-        android:inputType="textEmailAddress" />
+        android:textColor="@color/colorSecondaryText"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/colorSecondaryText" />
     <EditText
         android:id="@+id/idUserEmail"
         android:layout_width="match_parent"
@@ -41,6 +42,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:hint="Enter Email"
+        android:textColor="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         android:inputType="textEmailAddress" />
@@ -54,12 +56,13 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
+        android:textColor="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
         android:hint="Enter Password"
         android:textColorHint="@color/colorSecondaryText"
         android:inputType="textPassword" />
 
-    <!--button to register our new user-->
+
     <Button
         android:id="@+id/idLoginButton"
         android:layout_width="match_parent"
@@ -68,7 +71,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:text="LOGIN"
+        android:text="Login"
         app:backgroundTint="@color/colorDivider"
         android:textAllCaps="false" />
 
