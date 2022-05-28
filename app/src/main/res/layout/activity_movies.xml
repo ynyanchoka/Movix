@@ -5,10 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoviesActivity">
+    tools:context=".MoviesActivity"
+    android:background="#18172e">
 
   <TextView
-      android:id="@+id/latestMovies"
+      android:id="@+id/popularMovies"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_centerInParent="true"
@@ -16,27 +17,17 @@
       android:gravity="center_horizontal"
       android:layout_alignParentTop="true"
       android:textSize="25sp"
+      android:textColor="@color/colorTextIcons"
       android:text="Latest movies in the past month " />
 
   <ListView
       android:id="@+id/listView"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/latestMovies"
+      android:layout_below="@+id/popularMovies"
       android:layout_alignParentEnd="true"
       android:layout_alignParentRight="true"
-      android:textStyle="bold" />
+      android:textColor="@color/colorSecondaryText" />
 
-  <TextView
-      android:id="@+id/latestTVShows"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_centerInParent="true"
-      android:layout_marginTop="20dp"
-      android:gravity="center_horizontal"
-      android:layout_alignParentTop="true"
-      android:textSize="25sp"
-      android:layout_below="@+id/listView"
-      android:text="Latest movies in the past month " />
 
   </RelativeLayout>
