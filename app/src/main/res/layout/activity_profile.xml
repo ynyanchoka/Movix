@@ -13,6 +13,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:contentDescription="TODO"
+        android:layout_marginTop="30dp"
         android:padding="0dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,8 +61,10 @@
         android:scaleType="fitXY"
         android:text="Get Started"
         app:fontFamily="@font/roboto"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:backgroundTint="@color/colorDivider"
+        android:textSize="15sp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
