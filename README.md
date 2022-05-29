@@ -38,10 +38,14 @@ Tests that run locally on the JVM, without an emulator or device.
 
 * [Java](https://www.java.com) - The language used
 * [Android Studio](https://developer.android.com/studio) - IDE
+* [Gradle](https://gradle.org) - To automate the creation of Movix app
 
 ## Authors
 
 * **Ymelda Monari** - [ynyanchoka](https://github.com/ynyanchoka)
+
+## Contact information
++ Ymelda Monari : `monaryymelda@gmail.com`
 
 
 ## Copyright and license information
