@@ -30,7 +30,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/colorSecondaryText"
-        android:hint="UserName"
+        android:hint="Username"
         app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:inputType="textEmailAddress"
@@ -70,15 +70,36 @@
     <Button
         android:id="@+id/idLoginButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_below="@id/idUserPassword"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="50dp"
         android:text="Login"
-        android:textColor="@color/colorTextIcons"
+        android:textSize="15sp"
+        android:textColor="@color/colorDark"
         android:fontFamily="@font/roboto"
-        app:backgroundTint="@color/colorDivider"
+        android:textStyle="bold"
+        app:backgroundTint="@color/colorTextIcons"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/idLoginButton"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/roboto"
+        android:textStyle="bold"
+        android:text="Sign up"
+        android:textAllCaps="false"
+        android:textColor="@color/colorTextIcons"
+        app:backgroundTint="@color/colorDivider" />
+
+
 
 </RelativeLayout>

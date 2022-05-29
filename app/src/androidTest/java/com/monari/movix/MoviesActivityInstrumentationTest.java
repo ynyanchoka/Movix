@@ -42,7 +42,7 @@ public class MoviesActivityInstrumentationTest {
 
     @Test
     public void listItemClickDisplaysToastWithCorrectMovie() {
-        String movieName = "Red Notice"; // Espresso to check that clicking on the first item (.atPosition(0)) in our ListView results in a Toast that displays "Mi Mero Mole"
+        String movieName = "The Matrix"; // Espresso to check that clicking on the first item (.atPosition(0)) in our ListView results in a Toast that displays "Mi Mero Mole"
         onData(anything())//To interact with the data in an adapter we must use the onData() method rather than onView()
                 .inAdapterView(withId(R.id.listView))
                 .atPosition(0)
@@ -50,5 +50,6 @@ public class MoviesActivityInstrumentationTest {
         onView(withText(movieName)).inRoot(withDecorView(not(activityDecorView)))
                 .check(matches(withText(movieName)));
     }
+
 
 }

@@ -96,15 +96,18 @@
     <Button
         android:id="@+id/idSignUpButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userPassword"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="10dp"
         android:text="Sign up"
-        android:textColor="@color/colorTextIcons"
-        app:fontFamily="@font/roboto"
-        app:backgroundTint="@color/colorDivider"
-        android:textAllCaps="false" />
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/colorDark"
+        app:backgroundTint="@color/colorTextIcons"
+        app:fontFamily="@font/roboto" />
 
 </RelativeLayout>

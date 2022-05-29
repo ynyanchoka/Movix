@@ -1,16 +1,9 @@
-package MovixArrayAdapter;
+package Adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-
-import java.util.List;
 
 public class MovixArrayAdapter extends ArrayAdapter  {
 
@@ -42,7 +35,7 @@ public class MovixArrayAdapter extends ArrayAdapter  {
         String year = mYears[position];
         String overview = mOverviews[position];
 
-        return String.format( movie + "\n" +"Genre: "+genre + "\n"+ "Rating:"+rating+ "\n"+ "Year:"+ year+"\n"+ overview);//\n  create a new line
+        return String.format( "\n" + movie + "\n" +"Genre: "+genre + "\n"+ "Rating:"+rating+ "\n"+ "Year:"+ year+"\n"+ overview+ "\n");//\n  create a new line
 //        "Name: " + name + "\n" +"User Name: " + userName+"\n" +"Email: " + userEmail
 
     }

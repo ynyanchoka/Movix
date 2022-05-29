@@ -3,12 +3,14 @@ package com.monari.movix;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +49,12 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                  String userEmail = muserEmail.getText().toString();
                  String userPassword = muserPassword.getText().toString();
                  if (name.isEmpty()||userName.isEmpty()||userEmail.isEmpty()||userPassword.isEmpty()) {
-                     Toast.makeText(getApplicationContext(), "All the fields are required", Toast.LENGTH_SHORT).show();
+
+                     Toast toast = Toast.makeText(getApplicationContext(), "All the fields are required.",Toast.LENGTH_SHORT);
+
+                     TextView toastMessage=(TextView) toast.getView().findViewById(android.R.id.message);
+                     toastMessage.setTextColor(Color.BLUE);
+                     toast.show();
                  }else{
 
                      Intent intent = new Intent(SignupActivity.this, ProfileActivity.class);

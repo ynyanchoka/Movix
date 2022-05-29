@@ -37,30 +37,33 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
-        android:text="login"
+        android:text="Login"
         android:textColor="@color/colorTextIcons"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/colorDivider"
+        app:backgroundTint="@color/colorDark"
         app:fontFamily="@font/roboto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        style="?android:attr/borderlessButtonStyle"/>
+        style="?android:attr/borderlessButtonStyle"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="match_parent"
-        android:layout_height="71dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="68dp"
         android:text="Sign up"
-        android:textColor="@color/colorTextIcons"
+        android:textColor="@color/colorDark"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:fontFamily="@font/roboto"
-        app:backgroundTint="@color/colorDivider"
+        app:backgroundTint="@color/colorTextIcons"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAllCaps="false"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
