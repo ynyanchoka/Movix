@@ -34,10 +34,6 @@ Tests that require an Android device or emulator to simulate a user actions.
 Tests that run locally on the JVM, without an emulator or device.
 
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [Java](https://www.java.com) - The language used
@@ -45,7 +41,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **Ymelda Monari** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ymelda Monari** - [ynyanchoka](https://github.com/ynyanchoka)
 
 
 ## Copyright and license information
