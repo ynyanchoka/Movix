@@ -20,7 +20,7 @@
       android:text="Best Movies of all time"
       android:textColor="@color/colorTextIcons"
       android:textSize="20sp"
-      app:fontFamily="@font/roboto" />
+      app:fontFamily="@font/roboto_bold" />
 
   <ListView
       android:id="@+id/listView"
