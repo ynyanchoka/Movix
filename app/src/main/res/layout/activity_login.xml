@@ -15,6 +15,7 @@
         android:gravity="center_horizontal"
         android:padding="5dp"
         android:text="Welcome Back"
+        android:fontFamily="@font/roboto"
         android:textAlignment="center"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp" />
@@ -30,6 +31,7 @@
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/colorSecondaryText"
         android:hint="UserName"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/colorSecondaryText" />
@@ -42,6 +44,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:hint="Email"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
@@ -59,6 +62,7 @@
         android:textColor="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
         android:hint="Password"
+        app:fontFamily="@font/roboto"
         android:textColorHint="@color/colorSecondaryText"
         android:inputType="textPassword" />
 
@@ -72,6 +76,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:text="Login"
+        android:textColor="@color/colorTextIcons"
+        android:fontFamily="@font/roboto"
         app:backgroundTint="@color/colorDivider"
         android:textAllCaps="false" />
 

@@ -14,6 +14,7 @@
         android:text="Movix"
         android:layout_marginTop="35dp"
         android:textSize="40sp"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorTextIcons"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -41,6 +42,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/colorDivider"
+        app:fontFamily="@font/roboto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         style="?android:attr/borderlessButtonStyle"/>
@@ -55,7 +57,7 @@
         android:text="Sign up"
         android:textColor="@color/colorTextIcons"
         android:textSize="20sp"
-        android:textStyle="bold"
+        app:fontFamily="@font/roboto"
         app:backgroundTint="@color/colorDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

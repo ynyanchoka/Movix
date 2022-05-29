@@ -6,25 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MoviesActivity"
-    android:background="#18172e">
+    android:background="#18172e"
+    >
 
   <TextView
       android:id="@+id/popularMovies"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
       android:layout_centerInParent="true"
       android:layout_marginTop="20dp"
       android:gravity="center_horizontal"
-      android:layout_alignParentTop="true"
-      android:textSize="25sp"
+      android:text="Latest movies in the past month "
       android:textColor="@color/colorTextIcons"
-      android:text="Latest movies in the past month " />
+      android:textSize="20sp"
+      app:fontFamily="@font/roboto" />
 
   <ListView
       android:id="@+id/listView"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/popularMovies"
+      app:fontFamily="@font/roboto"
       android:layout_alignParentEnd="true"
       android:layout_alignParentRight="true"
       android:textColor="@color/colorSecondaryText" />

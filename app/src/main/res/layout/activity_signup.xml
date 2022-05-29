@@ -16,6 +16,7 @@
         android:padding="5dp"
         android:text="Welcome to Movix \n Sign up here"
         android:textAlignment="center"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp" />
     <EditText
@@ -27,6 +28,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:hint="Name"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         app:backgroundTint = "@color/colorSecondaryText"
@@ -42,6 +44,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="10dp"
         android:hint="Username"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
@@ -55,6 +58,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="10dp"
         android:hint="Email"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:backgroundTint = "@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
@@ -71,6 +75,7 @@
         android:layout_marginEnd="10dp"
         android:backgroundTint = "@color/colorSecondaryText"
         android:hint="Password"
+        app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         android:inputType="textPassword" />
@@ -97,6 +102,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:text="Sign up"
+        android:textColor="@color/colorTextIcons"
+        app:fontFamily="@font/roboto"
         app:backgroundTint="@color/colorDivider"
         android:textAllCaps="false" />
 

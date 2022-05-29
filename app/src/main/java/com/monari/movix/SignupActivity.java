@@ -50,7 +50,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                      Toast.makeText(getApplicationContext(), "All the fields are required", Toast.LENGTH_SHORT).show();
                  }else{
 
-                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                     Intent intent = new Intent(SignupActivity.this, ProfileActivity.class);
                      intent.putExtra("name", name);
                      intent.putExtra("userName", userName);
                      intent.putExtra("userEmail", userEmail);

@@ -17,29 +17,33 @@ public class MovixArrayAdapter extends ArrayAdapter  {
     private Context mContext;    //required for many methods to run,
     private String[] mMovies;
     private String[] mGenres;
+    private String[] mRatings;
     private String[] mYears;
     private String[] mOverviews;
-    private String[] mRatings;
 
 
-    public MovixArrayAdapter( Context mContext, int resource, String[] mMovies, String[] mGenres, String[] mYears, String[] mOverviews, String[] mRatings) {
+
+    public MovixArrayAdapter( Context mContext, int resource, String[] mMovies, String[] mGenres, String[] mRatings, String[] mYears, String[] mOverviews) {
         super(mContext, resource);
         this.mContext = mContext;
         this.mMovies = mMovies;
         this.mGenres = mGenres;
+        this.mRatings = mRatings;
         this.mYears = mYears;
         this.mOverviews = mOverviews;
-        this.mRatings = mRatings;
+
     }
 
     @Override //Override some of ArrayAdapter’s methods and replace them with our own custom versions
     public Object getItem(int position) {
         String movie = mMovies[position];
         String genre = mGenres[position];
+        String rating = mRatings[position];
         String year = mYears[position];
         String overview = mOverviews[position];
-        String rating = mRatings[position];
-        return String.format("%s \nGenre: %s", movie, overview);//\n  create a new line
+
+        return String.format( movie + "\n" +"Genre: "+genre + "\n"+ "Rating:"+rating+ "\n"+ "Year:"+ year+"\n"+ overview);//\n  create a new line
+//        "Name: " + name + "\n" +"User Name: " + userName+"\n" +"Email: " + userEmail
 
     }
 
