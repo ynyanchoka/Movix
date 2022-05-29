@@ -31,7 +31,16 @@ There are two tests to be run:
 
 Tests that require an Android device or emulator to simulate a user actions.
 ### Local Test
-Tests that run locally on the JVM, without an emulator or device.
+Tests that run locally on the JVM, without an emulator or device.Robolectric  is used for this.It test's the behaviors of a particular component in isolation of other components.It is important to test a small portion of the App.
+
+-   @Test
+    public void anotherActivityStarted(){
+    activity.findViewById(R.id.signUpButton).performClick();
+    Intent expectedIntent = new Intent(activity, SignupActivity.class);
+    ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
+    Intent actualIntent = shadowActivity.getNextStartedActivity();
+    assertTrue(actualIntent.filterEquals(expectedIntent));
+    }
 
 
 ## Built With

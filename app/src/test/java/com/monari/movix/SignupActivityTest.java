@@ -25,12 +25,4 @@ public class SignupActivityTest {
                 .get();
     }
 
-//    @Test
-//    public void profileActivityStarted(){
-//        activity.findViewById(R.id.idSignUpButton).performClick();
-//        Intent expectedIntent = new Intent(activity, ProfileActivity.class);
-//        ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
-//        Intent actualIntent = shadowActivity.getNextStartedActivity();
-//        assertTrue(actualIntent.filterEquals(expectedIntent));
-//    }
 }

@@ -8,13 +8,28 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
+@LargeTest //testing integration of all application components
 public class SignupActivityInstrumentationTest {
+
+    @Rule
+    public ActivityScenarioRule<SignupActivity> activityRule =
+            new ActivityScenarioRule<>(SignupActivity.class);
+
+    @Test
+    public void validateEditText() {
+        onView(withId(R.id.name)).perform(typeText("Ymelda"))
+                .check(matches(withText("Ymelda")));//                .check(matches(withText("Nairobi")));
+        //matches() is a ViewAssertion method that validates the specific properties of the given view
+    }
 
     @Test
     public void detailsIsSentToProfileActivity(){
