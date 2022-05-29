@@ -27,10 +27,12 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/popularMovies"
-      app:fontFamily="@font/roboto"
       android:layout_alignParentEnd="true"
       android:layout_alignParentRight="true"
-      android:textColor="@color/colorSecondaryText" />
+      android:divider="@color/colorSecondaryText"
+      android:dividerHeight="1dp"
+      android:textColor="@color/colorSecondaryText"
+      app:fontFamily="@font/roboto" />
 
 
   </RelativeLayout>
