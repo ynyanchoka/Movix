@@ -52,8 +52,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                      Toast toast = Toast.makeText(getApplicationContext(), "All the fields are required.",Toast.LENGTH_SHORT);
 
-                     TextView toastMessage=(TextView) toast.getView().findViewById(android.R.id.message);
-                     toastMessage.setTextColor(Color.BLUE);
+//                     TextView toastMessage=(TextView) toast.getView().findViewById(android.R.id.message);
+//                     toastMessage.setTextColor(Color.BLUE);
                      toast.show();
                  }else{
 

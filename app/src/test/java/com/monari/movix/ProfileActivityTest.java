@@ -1,11 +1,5 @@
 package com.monari.movix;
 
-
-
-import android.content.Intent;
-
-import junit.framework.TestCase;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,26 +7,29 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.shadows.ShadowActivity;
 
+import static org.junit.Assert.*;
+
+import android.content.Intent;
+
+
 @RunWith(RobolectricTestRunner.class)
-public class SignupActivityTest extends TestCase {
-
-    private SignupActivity activity;
-
+public class ProfileActivityTest {
+    private ProfileActivity activity;
     @Before
     public void setUp() throws Exception {
-        activity = Robolectric.buildActivity(SignupActivity.class)
+        activity = Robolectric.buildActivity(ProfileActivity.class)
                 .create()
                 .resume()
                 .get();
     }
 
+
     @Test
-    public void profileActivityStarted(){
-        activity.findViewById(R.id.idSignUpButton).performClick();
-        Intent expectedIntent = new Intent(activity, ProfileActivity.class);
+    public void moviesActivityStarted(){
+        activity.findViewById(R.id.getStarted).performClick();
+        Intent expectedIntent = new Intent(activity, MoviesActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));
     }
-
 }
