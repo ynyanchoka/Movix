@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movix">
         <activity
+            android:name=".LoginActivityTest"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
@@ -18,11 +21,11 @@
         <activity
             android:name=".SignupActivity"
             android:exported="false"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

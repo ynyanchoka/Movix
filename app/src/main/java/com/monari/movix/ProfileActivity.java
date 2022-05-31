@@ -32,7 +32,6 @@ public class ProfileActivity extends AppCompatActivity {
         mGetStartedButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-//                Toast.makeText(ProfileActivity.this, "Welcome to Movix", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(ProfileActivity.this, MoviesActivity.class);
                 startActivity(intent);
 

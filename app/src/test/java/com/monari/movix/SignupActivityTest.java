@@ -2,6 +2,8 @@ package com.monari.movix;
 
 
 
+import static org.junit.Assert.assertTrue;
+
 import android.content.Intent;
 
 import junit.framework.TestCase;
@@ -14,7 +16,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.shadows.ShadowActivity;
 
 @RunWith(RobolectricTestRunner.class)
-public class SignupActivityTest extends TestCase {
+public class SignupActivityTest {
 
     private SignupActivity activity;
 
