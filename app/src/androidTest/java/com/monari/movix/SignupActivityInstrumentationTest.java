@@ -27,7 +27,7 @@ public class SignupActivityInstrumentationTest {
     @Test
     public void validateEditText() {
         onView(withId(R.id.name)).perform(typeText("Ymelda"))
-                .check(matches(withText("Ymelda")));//                .check(matches(withText("Nairobi")));
+                .check(matches(withText("Ymelda")));//
         //matches() is a ViewAssertion method that validates the specific properties of the given view
     }
 

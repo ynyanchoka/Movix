@@ -16,6 +16,10 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class MoviesActivityInstrumentationTest {
 
+    @Rule
+    public ActivityScenarioRule<MoviesActivity> activityRule =
+            new ActivityScenarioRule<>(MoviesActivity.class);
+
 
 
 
