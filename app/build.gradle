@@ -21,6 +21,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildTypes.each {
+        it.buildConfigField 'String', 'TMDB_API_KEY', TMDBApiKey
+    }
+
     buildTypes {
         release {
             minifyEnabled false
