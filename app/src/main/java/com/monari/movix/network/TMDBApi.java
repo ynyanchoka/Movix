@@ -17,4 +17,11 @@ public interface TMDBApi {
             @Query("page") Integer page
     );
 
+    @GET("search/tv")
+    Call<TMDBSearchMoviesResponse> getTvShows(
+            @Query("api_key") String api_key,
+            @Query("query") String query,
+            @Query("page") Integer page
+    );
+
 }

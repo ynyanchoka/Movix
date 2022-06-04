@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.monari.movix.R;
-import com.monari.movix.models.Result;
+import com.monari.movix.models.ResultsTv;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -18,27 +18,28 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.MoviesViewHolder> {
-    private List<Result> mMovies;
+public class TvShowsListAdapter extends RecyclerView.Adapter<TvShowsListAdapter.TvShowViewHolder> {
+
+    private List<ResultsTv>mTvShows;
     private Context mContext;
 
-    public MoviesListAdapter(Context context, List<Result> movies) {
+    public TvShowsListAdapter(Context context, List<ResultsTv> tvShows) {
         mContext = context;
-        mMovies = movies;
+        mTvShows = tvShows;
     }
 
 
     @Override
-    public MoviesListAdapter.MoviesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TvShowsListAdapter.TvShowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movies_list_item, parent, false);
-        MoviesViewHolder viewHolder = new MoviesViewHolder(view);
+        TvShowsListAdapter.TvShowViewHolder viewHolder = new TvShowsListAdapter.TvShowViewHolder(view);
         return viewHolder;
 
     }
 
     @Override
-    public void onBindViewHolder(MoviesListAdapter.MoviesViewHolder holder, int position) {
-        holder.bindMovies(mMovies.get(position));
+    public void onBindViewHolder(TvShowsListAdapter.TvShowViewHolder holder, int position) {
+        holder.bindTvShows(mTvShows.get(position));
 
 
 
@@ -46,10 +47,10 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
 
     @Override
     public int getItemCount() {
-        return mMovies.size();
+        return mTvShows.size();
     }
 
-    public class MoviesViewHolder extends RecyclerView.ViewHolder {
+    public class TvShowViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.movieImageView)
         ImageView mMovieImageView;
         @BindView(R.id.titleMovie)
@@ -62,17 +63,17 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         private Context mContext;
 
 
-        public MoviesViewHolder(View itemView) {
+        public TvShowViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
         }
 
-        public void bindMovies(Result result) {
+        public void bindTvShows(ResultsTv result) {
             Picasso.get().load("https://image.tmdb.org/t/p/w500"+result. getPosterPath()).into(mMovieImageView);
-            mTitleMovie.setText(result.getTitle()) ;;
+            mTitleMovie.setText(result.getName());
             mRating.setText("Rating: " + result.getVoteAverage().toString() + "/5");
-            mGenre.setText("Release date: "+result.getReleaseDate());
+            mGenre.setText("Release date: "+result.getFirstAirDate());
 //            mRating.setText("Rating: " + result.getAdult() + "/10");
         }
     }
