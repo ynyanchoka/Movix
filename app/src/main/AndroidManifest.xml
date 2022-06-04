@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.monari.movix">
-    //requests access to the specified resource from the user
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,22 +10,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Movix">
-<!--        <activity-->
-<!--            android:name=".LoginActivityTest"-->
-<!--            android:exported="false" />-->
+        android:theme="@style/Theme.Movix"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ui.SearchResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".MoviesActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".ui.SignupActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
         <activity

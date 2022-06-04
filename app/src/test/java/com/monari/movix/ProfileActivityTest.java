@@ -11,6 +11,8 @@ import static org.junit.Assert.*;
 
 import android.content.Intent;
 
+import com.monari.movix.ui.ProfileActivity;
+
 
 @RunWith(RobolectricTestRunner.class)
 public class ProfileActivityTest {

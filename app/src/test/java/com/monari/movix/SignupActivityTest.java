@@ -6,7 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import android.content.Intent;
 
-import junit.framework.TestCase;
+import com.monari.movix.ui.ProfileActivity;
+import com.monari.movix.ui.SignupActivity;
 
 import org.junit.Before;
 import org.junit.Test;

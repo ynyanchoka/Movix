@@ -3,7 +3,9 @@ package com.monari.movix;
 import static org.junit.Assert.assertTrue;
 
 import android.content.Intent;
-import android.widget.TextView;
+
+import com.monari.movix.ui.LoginActivity;
+import com.monari.movix.ui.SignupActivity;
 
 import org.junit.Before;
 import org.junit.Test;

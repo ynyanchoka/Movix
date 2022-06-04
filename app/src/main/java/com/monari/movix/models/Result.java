@@ -1,12 +1,15 @@
 
-package com.monari.movix;
+package com.monari.movix.models;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
 
-public class Result {
+
+public class Result implements Serializable {
 
     @SerializedName("adult")
     @Expose

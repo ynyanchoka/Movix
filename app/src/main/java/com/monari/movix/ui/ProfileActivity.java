@@ -1,4 +1,4 @@
-package com.monari.movix;
+package com.monari.movix.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.monari.movix.MoviesActivity;
+import com.monari.movix.R;
 
 public class ProfileActivity extends AppCompatActivity {
     private TextView mProfileName;

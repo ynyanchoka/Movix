@@ -1,20 +1,18 @@
-package com.monari.movix;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
+package com.monari.movix.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.monari.movix.MoviesActivity;
+import com.monari.movix.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +23,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.signUpButton) Button mSignUpButton;
     @BindView(R.id.idUserEmail) EditText midUserEmail;
     @BindView(R.id.idUserName) EditText midUserName;
-    @BindView(R.id.idUserPassword) EditText imdUserPassword;
+    @BindView(R.id.idUserPassword) EditText midUserPassword;
 
     Button idLoginButton;
     EditText idUserEmail;
@@ -56,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onClick(View view) {
                 if(view == midLoginButton) {
                     String username = midUserName.getText().toString();
-                    String password = imdUserPassword.getText().toString();
+                    String password = midUserPassword.getText().toString();
                     String email = midUserEmail.getText().toString();
                     if (username.isEmpty() || password.isEmpty()|| email.isEmpty() ){
 
