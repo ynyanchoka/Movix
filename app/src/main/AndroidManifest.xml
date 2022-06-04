@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Movix"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.MoviesDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SearchResultsActivity"
             android:exported="false" />
         <activity

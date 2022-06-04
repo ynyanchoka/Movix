@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3597259521484375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31774749755859377" />
         <entry key="app/src/main/res/layout/activity_movies.xml" value="0.35319671630859373" />
+        <entry key="app/src/main/res/layout/activity_movies_detail.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.43628321108610735" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.15963393810183496" />
         <entry key="app/src/main/res/layout/movies_list_item.xml" value="0.1" />
