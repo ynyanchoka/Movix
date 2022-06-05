@@ -16,39 +16,27 @@
         android:gravity="center_horizontal"
         android:padding="5dp"
         android:text="Welcome Back"
+        android:layout_alignEnd="@id/idUserPassword"
         android:textAlignment="center"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp" />
 
-    <!--edit text for user name-->
-    <EditText
-        android:id="@+id/idUserName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Welcome"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/colorSecondaryText"
-        android:hint="Username"
-        app:fontFamily="@font/roboto"
-        android:textColor="@color/colorSecondaryText"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/colorSecondaryText" />
     <EditText
         android:id="@+id/idUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idUserName"
+        android:layout_below="@id/Welcome"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/colorSecondaryText"
+        android:drawableLeft="@drawable/baseline_email_white_18dp"
+        android:drawablePadding="4dp"
         android:hint="Email"
-        app:fontFamily="@font/roboto"
+        android:inputType="textEmailAddress"
         android:textColor="@color/colorSecondaryText"
-        android:backgroundTint = "@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
-        android:inputType="textEmailAddress" />
+        app:fontFamily="@font/roboto" />
 
     <!--edit text for user password-->
     <EditText
@@ -59,12 +47,28 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
-        android:textColor="@color/colorSecondaryText"
-        android:backgroundTint = "@color/colorSecondaryText"
+        android:backgroundTint="@color/colorSecondaryText"
         android:hint="Password"
-        app:fontFamily="@font/roboto"
+        android:inputType="textPassword"
+        android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
-        android:inputType="textPassword" />
+        app:fontFamily="@font/roboto"
+        android:drawableLeft="@drawable/baseline_lock_white_18dp"
+        android:drawablePadding="4dp"/>
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idUserPassword"
+        android:layout_alignRight="@id/idUserPassword"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/colorSecondaryText"
+        android:text="Forgot password?"
+        android:textColor="@color/colorSecondaryText"
+        android:textColorHint="@color/colorSecondaryText" />
 
 
     <Button
@@ -72,8 +76,9 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_below="@id/idUserPassword"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="250dp"
         android:layout_marginEnd="50dp"
         android:fontFamily="@font/roboto"
         android:text="Login"
@@ -81,7 +86,7 @@
         android:textColor="@color/colorDark"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:backgroundTint="@color/colorTextIcons" />
+        app:backgroundTint="@color/colorPrimaryDark" />
 
     <Button
         android:id="@+id/signUpButton"

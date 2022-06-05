@@ -7,6 +7,7 @@
     tools:context=".ui.SignupActivity"
     android:background="#18172e">
 
+
     <TextView
         android:id="@+id/WelcomeSignUp"
         android:layout_width="match_parent"
@@ -34,37 +35,27 @@
         android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
         app:backgroundTint = "@color/colorSecondaryText"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:drawableLeft="@drawable/baseline_badge_white_18dp"
+        android:drawablePadding="4dp"/>
 
 
     <EditText
-        android:id="@+id/userName"
+        android:id="@+id/userEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="10dp"
-        android:hint="Username"
-        app:fontFamily="@font/roboto"
-        android:textColor="@color/colorSecondaryText"
-        android:textColorHint="@color/colorSecondaryText"
-        android:backgroundTint = "@color/colorSecondaryText"
-        android:inputType="textEmailAddress" />
-    <EditText
-        android:id="@+id/userEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userName"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/colorSecondaryText"
         android:hint="Email"
-        app:fontFamily="@font/roboto"
+        android:inputType="textEmailAddress"
         android:textColor="@color/colorSecondaryText"
-        android:backgroundTint = "@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
-        android:inputType="textEmailAddress" />
+        app:fontFamily="@font/roboto"
+        android:drawableLeft="@drawable/baseline_email_white_18dp"
+        android:drawablePadding="4dp"/>
 
     <!--edit text for user password-->
     <EditText
@@ -80,7 +71,9 @@
         app:fontFamily="@font/roboto"
         android:textColor="@color/colorSecondaryText"
         android:textColorHint="@color/colorSecondaryText"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/baseline_lock_white_18dp"
+        android:drawablePadding="4dp"/>
 
 <!--    <TextView-->
 <!--        android:id="@+id/alreadyHave"-->
@@ -110,7 +103,7 @@
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@color/colorDark"
-        app:backgroundTint="@color/colorTextIcons"
+        app:backgroundTint="@color/colorPrimaryDark"
         app:fontFamily="@font/roboto" />
 
 </RelativeLayout>
