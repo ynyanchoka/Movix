@@ -1,0 +1,123 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MoviesDetailFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorDark">
+
+        <ImageView
+            android:id="@+id/posterPathImageView"
+            android:layout_width="match_parent"
+            android:layout_height="371dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/clapperboard" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorDark"
+            android:paddingTop="20dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/movieNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/roboto"
+                android:text="Movie/Tvshow Name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ratingMovies"
+                android:layout_width="111dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/movieNameTextView"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="46dp"
+                android:layout_marginEnd="284dp"
+                android:layout_marginRight="284dp"
+                android:fontFamily="@font/roboto"
+                android:text="4.5/5"
+                android:textColor="@color/colorTextIcons"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/genreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movieNameTextView"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/roboto"
+                android:text="Drama,comedy"
+                android:textColor="@color/colorSecondaryText" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:id="@+id/overviewTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Overview"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View homepage"
+                    android:id="@+id/homepageTextView"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    />
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="123 SW Best Ever Ave. Portland, Oregon, 97222"-->
+<!--                    android:drawablePadding="4dp"-->
+<!--                    android:id="@+id/addressTextView"-->
+<!--                    android:textColor="@color/colorDark"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:gravity="center_vertical"/>-->
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

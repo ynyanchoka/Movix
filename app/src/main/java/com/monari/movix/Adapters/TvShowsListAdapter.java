@@ -55,10 +55,10 @@ public class TvShowsListAdapter extends RecyclerView.Adapter<TvShowsListAdapter.
         ImageView mMovieImageView;
         @BindView(R.id.titleMovie)
         TextView mTitleMovie;
-        @BindView(R.id.genre)
-        TextView mGenre;
         @BindView(R.id.ratingMovies)
         TextView mRating;
+        @BindView(R.id.releaseDateTextview)
+        TextView mReleaseDateTextview;
 
         private Context mContext;
 
@@ -73,7 +73,7 @@ public class TvShowsListAdapter extends RecyclerView.Adapter<TvShowsListAdapter.
             Picasso.get().load("https://image.tmdb.org/t/p/w500"+result. getPosterPath()).into(mMovieImageView);
             mTitleMovie.setText(result.getName());
             mRating.setText("Rating: " + result.getVoteAverage().toString() + "/5");
-            mGenre.setText("Release date: "+result.getFirstAirDate());
+            mReleaseDateTextview.setText("Release date: "+result.getFirstAirDate());
 //            mRating.setText("Rating: " + result.getAdult() + "/10");
         }
     }

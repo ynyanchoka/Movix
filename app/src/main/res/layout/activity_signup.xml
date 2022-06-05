@@ -19,6 +19,8 @@
         app:fontFamily="@font/roboto"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp" />
+
+
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
@@ -92,6 +94,7 @@
 <!--        android:text="Already have an account? Log In"-->
 <!--        android:textColor="@color/colorSecondaryText"-->
 <!--        android:textColorHint="@color/colorSecondaryText" />-->
+
 
     <Button
         android:id="@+id/idSignUpButton"

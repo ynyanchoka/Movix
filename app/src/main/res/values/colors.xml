@@ -9,13 +9,13 @@
 <!--    <color name="white">#FFFFFFFF</color>-->
 
     <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#ffd600</color>
+    <color name="colorPrimaryDark">#d9c573</color>
     <color name="colorPrimaryLight">#FFCCBC</color>
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorAccent">#009688</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#727272</color>
-    <color name="colorDivider">#1c1c3c</color>
+    <color name="colorDivider">#13133D</color>
     <color name="colorDark">#18172e</color>
     <color name="colorOcean">#2133f8</color>
 

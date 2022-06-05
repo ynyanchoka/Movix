@@ -24,4 +24,12 @@ public interface TMDBApi {
             @Query("page") Integer page
     );
 
+    @GET("movie/{movie_id}")
+    Call<TMDBSearchMoviesResponse> getMoviesDetail(
+            @Query("api_key") String api_key,
+            @Query("query") String query
+    );
+
+
+
 }

@@ -1,6 +1,7 @@
 package com.monari.movix.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.monari.movix.R;
 import com.monari.movix.models.Result;
+import com.monari.movix.ui.MoviesDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -49,15 +53,19 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         return mMovies.size();
     }
 
-    public class MoviesViewHolder extends RecyclerView.ViewHolder {
+    //listner
+
+    public class MoviesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.movieImageView)
         ImageView mMovieImageView;
         @BindView(R.id.titleMovie)
         TextView mTitleMovie;
-        @BindView(R.id.genre)
-        TextView mGenre;
+        @BindView(R.id.releaseDateTextview)
+        TextView mReleaseDateTextview;
         @BindView(R.id.ratingMovies)
         TextView mRating;
+        @BindView(R.id.adultTextview)
+        TextView mAdult;
 
         private Context mContext;
 
@@ -66,14 +74,24 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindMovies(Result result) {
             Picasso.get().load("https://image.tmdb.org/t/p/w500"+result. getPosterPath()).into(mMovieImageView);
             mTitleMovie.setText(result.getTitle()) ;;
-            mRating.setText("Rating: " + result.getVoteAverage().toString() + "/5");
-            mGenre.setText("Release date: "+result.getReleaseDate());
-//            mRating.setText("Rating: " + result.getAdult() + "/10");
+            mRating.setText(Double.toString(result.getVoteAverage()) + "/10");
+            mReleaseDateTextview.setText("Release date: "+result.getReleaseDate());
+//            mAdult.setText(Boolean.toString(result.getAdult()));
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();// retrieve the position of the specific list item clicked
+            Intent intent = new Intent(mContext, MoviesDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("movies", Parcels.wrap(mMovies));
+            mContext.startActivity(intent);
         }
     }
 }

@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
-
-public class TMDBSearchMoviesResponse implements Serializable {
+@Parcel
+public class TMDBSearchMoviesResponse {
 
     @SerializedName("page")
     @Expose

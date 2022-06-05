@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
-
-public class Result implements Serializable {
+@Parcel
+public class Result {
 
     @SerializedName("adult")
     @Expose

@@ -125,6 +125,39 @@ public class MoviesActivity extends AppCompatActivity {
                     }
                 });
 
+                //movie details
+//
+//                call = tmdbApi.getMoviesDetail(BuildConfig.TMDB_API_KEY, mSearchView.getQuery().toString());
+//                call.enqueue(new retrofit2.Callback<TMDBSearchMoviesResponse>() {
+//                    @Override
+//                    public void onResponse(retrofit2.Call<TMDBSearchMoviesResponse> call, retrofit2.Response<TMDBSearchMoviesResponse> response) {
+//
+//                        hideProgressBar();
+//
+//                        results = response.body().getResults();
+//                        mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
+//                        mRecyclerView.setAdapter(mAdapter);
+//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
+//                        mRecyclerView.setLayoutManager(layoutManager);
+//                        mRecyclerView.setHasFixedSize(true);
+//
+//                        showMovies();
+//
+//                    }
+//
+//
+//                    @Override
+//                    public void onFailure(Call<TMDBSearchMoviesResponse> call, Throwable t) {
+//
+//                        Log.i(TAG, "onFailure: show something ",t );
+//                        t.printStackTrace();
+//                        hideProgressBar();
+//                        showFailureMessage();
+//                        showUnsuccessfulMessage();
+//
+//                    }
+//                });
+
 
             }
         });
