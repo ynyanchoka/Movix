@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.monari.movix.R;
 import com.monari.movix.models.Result;
+import com.monari.movix.models.ResultsTv;
 import com.monari.movix.ui.MoviesDetailActivity;
 import com.squareup.picasso.Picasso;
 
@@ -64,8 +65,8 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         TextView mReleaseDateTextview;
         @BindView(R.id.ratingMovies)
         TextView mRating;
-        @BindView(R.id.adultTextview)
-        TextView mAdult;
+//        @BindView(R.id.adultTextview)
+//        TextView mAdult;
 
         private Context mContext;
 
@@ -81,8 +82,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
             Picasso.get().load("https://image.tmdb.org/t/p/w500"+result. getPosterPath()).into(mMovieImageView);
             mTitleMovie.setText(result.getTitle()) ;;
             mRating.setText(Double.toString(result.getVoteAverage()) + "/10");
-            mReleaseDateTextview.setText("Release date: "+result.getReleaseDate());
-//            mAdult.setText(Boolean.toString(result.getAdult()));
+
         }
 
         @Override

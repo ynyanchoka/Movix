@@ -61,7 +61,7 @@
         android:scaleType="fitXY"
         android:text="Get Started"
         app:fontFamily="@font/roboto"
-        android:backgroundTint="@color/colorTextIcons"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:textColor="@color/colorDark"
         android:textStyle="bold"
         android:textSize="15sp"

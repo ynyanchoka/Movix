@@ -74,7 +74,6 @@ public class TvShowsListAdapter extends RecyclerView.Adapter<TvShowsListAdapter.
             mTitleMovie.setText(result.getName());
             mRating.setText("Rating: " + result.getVoteAverage().toString() + "/5");
             mReleaseDateTextview.setText("Release date: "+result.getFirstAirDate());
-//            mRating.setText("Rating: " + result.getAdult() + "/10");
         }
     }
 }

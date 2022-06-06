@@ -19,7 +19,6 @@ import butterknife.ButterKnife;
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.idSignUpButton) Button midSignUpButton;
     @BindView(R.id.name) EditText mname;
-    @BindView(R.id.userName) EditText muserName;
     @BindView(R.id.userEmail) EditText muserEmail;
     @BindView(R.id.userPassword) EditText muserPassword;
 
@@ -46,10 +45,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             public void onClick(View view) {
              if (view == midSignUpButton){
                  String name = mname.getText().toString();
-                 String userName = muserName.getText().toString();
                  String userEmail = muserEmail.getText().toString();
                  String userPassword = muserPassword.getText().toString();
-                 if (name.isEmpty()||userName.isEmpty()||userEmail.isEmpty()||userPassword.isEmpty()) {
+                 if (name.isEmpty()||userEmail.isEmpty()||userPassword.isEmpty()) {
 
                      Toast toast = Toast.makeText(getApplicationContext(), "All the fields are required.",Toast.LENGTH_SHORT);
 
@@ -60,7 +58,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                      Intent intent = new Intent(SignupActivity.this, ProfileActivity.class);
                      intent.putExtra("name", name);
-                     intent.putExtra("userName", userName);
                      intent.putExtra("userEmail", userEmail);
                      intent.putExtra("userPassword", userPassword);
                      startActivity(intent);

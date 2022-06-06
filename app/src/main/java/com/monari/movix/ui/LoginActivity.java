@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.idLoginButton) Button midLoginButton;
     @BindView(R.id.signUpButton) Button mSignUpButton;
     @BindView(R.id.idUserEmail) EditText midUserEmail;
-    @BindView(R.id.idUserName) EditText midUserName;
     @BindView(R.id.idUserPassword) EditText midUserPassword;
 
     Button idLoginButton;
@@ -53,10 +52,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 if(view == midLoginButton) {
-                    String username = midUserName.getText().toString();
                     String password = midUserPassword.getText().toString();
                     String email = midUserEmail.getText().toString();
-                    if (username.isEmpty() || password.isEmpty()|| email.isEmpty() ){
+                    if ( password.isEmpty()|| email.isEmpty() ){
 
                         Toast toast = Toast.makeText(getApplicationContext(), "All the fields are required.",Toast.LENGTH_SHORT);
 
