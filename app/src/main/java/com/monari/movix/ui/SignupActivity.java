@@ -21,6 +21,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.name) EditText mname;
     @BindView(R.id.userEmail) EditText muserEmail;
     @BindView(R.id.userPassword) EditText muserPassword;
+    @BindView(R.id.idLoginButton) Button mIdLoginButton;
 
 
     private Button idSignUpButton;
@@ -36,6 +37,16 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
+
+        mIdLoginButton = (Button) findViewById(R.id.idLoginButton);
+        mIdLoginButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
         //lead to login activity

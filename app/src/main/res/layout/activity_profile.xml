@@ -7,6 +7,13 @@
     tools:context=".ui.ProfileActivity"
     android:background="#18172e">
 
+    <ImageView
+        android:id="@+id/imageHome"
+        android:layout_width="411dp"
+        android:layout_height="941dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/luminousbackground" />
+
 
     <ImageView
         android:id="@+id/imageView"

@@ -80,7 +80,8 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
 
         public void bindMovies(Result result) {
             Picasso.get().load("https://image.tmdb.org/t/p/w500"+result. getPosterPath()).into(mMovieImageView);
-            mTitleMovie.setText(result.getTitle()) ;;
+            mTitleMovie.setText(result.getTitle()) ;
+            mReleaseDateTextview.setText(result.getReleaseDate());
             mRating.setText(Double.toString(result.getVoteAverage()) + "/10");
 
         }

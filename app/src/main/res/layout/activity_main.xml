@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="#18172e">
+    <ImageView
+        android:id="@+id/imageHome"
+        android:layout_width="411dp"
+        android:layout_height="941dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/p14097646_p_v12_at" />
 
     <TextView
         android:id="@+id/title"
@@ -15,7 +21,7 @@
         android:layout_marginTop="35dp"
         android:textSize="50sp"
         app:fontFamily="@font/roboto_condensed_bold"
-        android:textColor="@color/colorTextIcons"
+        android:textColor="@color/colorDark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:text="For the best movies..."
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorDivider"
         android:textSize="18sp"
         app:fontFamily="@font/roboto"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,16 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageHome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="30dp"
-        android:layout_marginBottom="100dp"
-        android:src="@drawable/clapperboard"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-15dp"
-        />
+
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
@@ -72,11 +69,11 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="68dp"
         android:text="Sign up"
-        android:textColor="@color/colorDark"
+        android:textColor="@color/colorTextIcons"
         android:textSize="15sp"
         android:textStyle="bold"
         app:fontFamily="@font/roboto"
-        app:backgroundTint="@color/colorPrimaryDark"
+        app:backgroundTint="@color/colorDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textAllCaps="false"/>

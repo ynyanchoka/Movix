@@ -7,6 +7,13 @@
     tools:context=".ui.LoginActivity"
     android:background="#18172e">
 
+    <ImageView
+        android:id="@+id/imageHome"
+        android:layout_width="411dp"
+        android:layout_height="941dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/luminousbackground" />
+
     <TextView
         android:id="@+id/Welcome"
         android:layout_width="match_parent"
@@ -16,25 +23,41 @@
         android:gravity="center_horizontal"
         android:padding="5dp"
         android:text="Welcome Back"
-        android:layout_alignEnd="@id/idUserPassword"
         android:textAlignment="center"
         android:textColor="@color/colorTextIcons"
         android:textSize="25sp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Welcome"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardBackgroundColor="#B3FFFFFF">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
     <EditText
         android:id="@+id/idUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Welcome"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/colorSecondaryText"
-        android:drawableLeft="@drawable/baseline_email_white_18dp"
+        android:drawableLeft="@drawable/twotone_email_black_18dp"
         android:drawablePadding="6dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorDark"
         android:textColorHint="@color/colorSecondaryText"
         app:fontFamily="@font/roboto" />
 
@@ -50,10 +73,10 @@
         android:backgroundTint="@color/colorSecondaryText"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorDark"
         android:textColorHint="@color/colorSecondaryText"
         app:fontFamily="@font/roboto"
-        android:drawableLeft="@drawable/baseline_lock_white_18dp"
+        android:drawableLeft="@drawable/twotone_lock_black_18dp"
         android:drawablePadding="6dp"/>
 
     <TextView
@@ -67,7 +90,7 @@
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/colorSecondaryText"
         android:text="Forgot password?"
-        android:textColor="@color/colorSecondaryText"
+        android:textColor="@color/colorDark"
         android:textColorHint="@color/colorSecondaryText" />
 
 
@@ -78,7 +101,7 @@
         android:layout_below="@id/idUserPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="50dp"
         android:fontFamily="@font/roboto"
         android:text="Login"
@@ -100,10 +123,13 @@
         android:fontFamily="@font/roboto"
         android:text="Sign up"
         android:textAllCaps="false"
-        android:textColor="@color/colorTextIcons"
+        android:textColor="@color/colorDark"
         android:textSize="15sp"
         android:textStyle="bold"
         app:backgroundTint="@color/colorDivider" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 
