@@ -26,6 +26,8 @@
             android:paddingRight="16dp"
             android:paddingBottom="20dp">
 
+
+
             <TextView
                 android:id="@+id/movieNameTextView"
                 android:layout_width="wrap_content"
@@ -79,13 +81,13 @@
                 android:layout_alignParentStart="true"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:paddingTop="20dp">
+                >
 
                 <TextView
                     android:id="@+id/overviewTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/roboto"
                     android:text="Overview"
                     android:textColor="@color/colorTextIcons"
@@ -94,27 +96,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View homepage"
+                    android:text="View trending movies on TMDB"
                     android:id="@+id/homepageTextView"
                     android:drawablePadding="4dp"
-                    android:textColor="@color/colorTextIcons"
+                    android:textColor="#6CB4EE"
                     android:textSize="16sp"
                     android:fontFamily="@font/roboto"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
                     />
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="123 SW Best Ever Ave. Portland, Oregon, 97222"-->
-<!--                    android:drawablePadding="4dp"-->
-<!--                    android:id="@+id/addressTextView"-->
-<!--                    android:textColor="@color/colorDark"-->
-<!--                    android:textSize="15sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:layout_marginBottom="10dp"-->
-<!--                    android:gravity="center_vertical"/>-->
 
             </LinearLayout>
 

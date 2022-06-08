@@ -23,9 +23,9 @@
         android:padding="5dp"
         android:text="Welcome to Movix \n Sign up here"
         android:textAlignment="center"
-        app:fontFamily="@font/roboto"
         android:textColor="@color/colorTextIcons"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:fontFamily="@font/roboto" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSignUp"
@@ -38,7 +38,7 @@
         app:cardCornerRadius="12dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        app:cardBackgroundColor="#B3FFFFFF">
+        app:cardBackgroundColor="#26FFFFFF">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,11 +52,11 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="10dp"
-                android:drawableLeft="@drawable/twotone_badge_black_18dp"
+                android:drawableLeft="@drawable/baseline_badge_white_18dp"
                 android:drawablePadding="6dp"
                 android:hint="Name"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorDark"
+                android:textColor="@color/colorTextIcons"
                 android:textColorHint="@color/colorSecondaryText"
                 app:backgroundTint="@color/colorSecondaryText"
                 app:fontFamily="@font/roboto" />
@@ -73,10 +73,10 @@
                 android:backgroundTint="@color/colorSecondaryText"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/colorDark"
+                android:textColor="@color/colorTextIcons"
                 android:textColorHint="@color/colorSecondaryText"
                 app:fontFamily="@font/roboto"
-                android:drawableLeft="@drawable/twotone_email_black_18dp"
+                android:drawableLeft="@drawable/baseline_email_white_18dp"
                 android:drawablePadding="6dp"/>
 
             <!--edit text for user password-->
@@ -88,14 +88,14 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="10dp"
-                android:backgroundTint = "@color/colorSecondaryText"
+                android:backgroundTint="@color/colorSecondaryText"
+                android:drawableLeft="@drawable/baseline_lock_white_18dp"
+                android:drawablePadding="6dp"
                 android:hint="Password"
-                app:fontFamily="@font/roboto"
-                android:textColor="@color/colorDark"
-                android:textColorHint="@color/colorSecondaryText"
                 android:inputType="textPassword"
-                android:drawableLeft="@drawable/twotone_lock_black_18dp"
-                android:drawablePadding="6dp"/>
+                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/colorSecondaryText"
+                app:fontFamily="@font/roboto" />
 
             <Button
                 android:id="@+id/idSignUpButton"
@@ -107,7 +107,7 @@
                 android:layout_below="@id/userPassword"
                 android:textAllCaps="false"
                 android:textColor="@color/colorDark"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginTop="50dp"
                 app:backgroundTint="@color/colorPrimaryDark"
@@ -119,14 +119,12 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/idSignUpButton"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
                 android:fontFamily="@font/roboto"
-                android:text="Login"
+                android:text="Already have an account? Log in"
                 android:textAllCaps="false"
-                android:textColor="@color/colorDark"
+                android:textColor="@color/colorTextIcons"
                 android:textSize="15sp"
-                android:textStyle="bold"
                 app:backgroundTint="@color/colorDark"
                 style="?android:attr/borderlessButtonStyle"/>
 
@@ -134,23 +132,5 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/alreadyHave"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/userPassword"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:backgroundTint = "@color/colorSecondaryText"-->
-<!--        android:text="Already have an account? Log In"-->
-<!--        android:textColor="@color/colorSecondaryText"-->
-<!--        android:textColorHint="@color/colorSecondaryText" />-->
-
-
-
 
 </RelativeLayout>

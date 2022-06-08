@@ -60,6 +60,7 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
         super.onCreate(savedInstanceState);
         assert getArguments() != null;
         mMovies = Parcels.unwrap(getArguments().getParcelable("movie"));
+        mMovie = Parcels.unwrap(getArguments().getParcelable("detail"));
     }
 
 
@@ -71,9 +72,6 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_movies_detail, container, false);
         ButterKnife.bind(this, view);
-
-
-
 
 
         Picasso.get().load("https://image.tmdb.org/t/p/w500"+mMovies. getPosterPath()).into(mPosterPathImageView);
@@ -99,10 +97,11 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         //new implicit intent called webIntent and provide it two arguments: The ACTION_VIEW activity, responsible for displaying data to the user,
         if (v == mHomepageTextView) {
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mMovie.getHomepage()));
-            startActivity(webIntent);
+            Intent intent=new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://www.themoviedb.org/movie"));
+            startActivity(intent);
         }
+
 
     }
 }

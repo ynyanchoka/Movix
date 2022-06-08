@@ -54,6 +54,10 @@ public class Result {
     @Expose
     private Integer voteCount;
 
+    @SerializedName("homepage")
+    @Expose
+    private String homepage;
+
     /**
      * No args constructor for use in serialization
      * 
@@ -77,8 +81,9 @@ public class Result {
      * @param voteCount
      * @param adult
      * @param posterPath
+     * @param homepage
      */
-    public Result(Boolean adult, String backdropPath, List<Integer> genreIds, Integer id, String originalLanguage, String originalTitle, String overview, Double popularity, String posterPath, String releaseDate, String title, Boolean video, Double voteAverage, Integer voteCount) {
+    public Result(Boolean adult, String backdropPath, List<Integer> genreIds, Integer id, String originalLanguage, String originalTitle, String overview, Double popularity, String posterPath, String releaseDate, String title, Boolean video, Double voteAverage, Integer voteCount,String homepage) {
         super();
         this.adult = adult;
         this.backdropPath = backdropPath;
@@ -94,6 +99,7 @@ public class Result {
         this.video = video;
         this.voteAverage = voteAverage;
         this.voteCount = voteCount;
+        this.homepage = homepage;
     }
 
     public Boolean getAdult() {
@@ -207,5 +213,14 @@ public class Result {
     public void setVoteCount(Integer voteCount) {
         this.voteCount = voteCount;
     }
+
+    public String getHomepage() {
+        return homepage;
+    }
+
+    public void setHomepage(String homepage) {
+        this.homepage = homepage;
+    }
+
 
 }

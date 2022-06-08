@@ -39,6 +39,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         MoviesViewHolder viewHolder = new MoviesViewHolder(view);
         return viewHolder;
 
+
     }
 
     @Override
