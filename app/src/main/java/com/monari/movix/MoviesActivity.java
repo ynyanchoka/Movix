@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,7 +38,7 @@ import com.monari.movix.ui.PopularMoviesActivity;
 
 import retrofit2.Call;
 
-public class MoviesActivity extends AppCompatActivity {
+public class MoviesActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = MoviesActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
     @BindView(R.id.errorTextView) TextView mErrorTextView;
@@ -49,15 +51,23 @@ public class MoviesActivity extends AppCompatActivity {
 
     public List<Result> results;
     private Result mMovies;
-    private MoviesDetailsResponse details;
-
     private MoviesListAdapter mAdapter;
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_MOVIE_KEY, null);
+//        Log.d("Shared Pref movie", mRecentAddress);
+        String movie = mRecentAddress;
 
 
         // Initialize and assign variable
@@ -160,44 +170,26 @@ public class MoviesActivity extends AppCompatActivity {
                     }
                 });
 
-                //movie popular
-
-//                call = tmdbApi.getPopularMovies(BuildConfig.TMDB_API_KEY);
-//                call.enqueue(new retrofit2.Callback<TMDBSearchMoviesResponse>() {
-//                    @Override
-//                    public void onResponse(retrofit2.Call<TMDBSearchMoviesResponse> call, retrofit2.Response<TMDBSearchMoviesResponse> response) {
-//
-//                        hideProgressBar();
-//
-//                        results = response.body().getResults();
-//                        mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
-//                        mRecyclerView.setAdapter(mAdapter);
-//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
-//                        mRecyclerView.setLayoutManager(layoutManager);
-//                        mRecyclerView.setHasFixedSize(true);
-//
-//                        showMovies();
-//
-//                    }
-//
-//
-//                    @Override
-//                    public void onFailure(Call<TMDBSearchMoviesResponse> call, Throwable t) {
-//
-//                        Log.i(TAG, "onFailure: show something ",t );
-//                        t.printStackTrace();
-//                        hideProgressBar();
-//                        showFailureMessage();
-//                        showUnsuccessfulMessage();
-//
-//                    }
-//                });
-
-
             }
         });
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mSearchMoviesButton) {
+            String movie = mSearchView.getQuery().toString();
+            if(!(movie).equals("")) {
+                addToSharedPreferences(movie);
+            }
+            Intent intent = new Intent(MoviesActivity.this, MoviesActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void addToSharedPreferences(String movie) {
+        mEditor.putString(Constants.PREFERENCES_MOVIE_KEY, movie).apply();
     }
 
 
