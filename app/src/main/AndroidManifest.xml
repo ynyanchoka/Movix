@@ -13,12 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movix"
         android:usesCleartextTraffic="true">
-
-
-<!--        <activity-->
-<!--            android:name=".ui.MoviesDetailActivity"-->
-<!--            android:exported="false"-->
-<!--            />-->
+        <activity
+            android:name=".ui.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PopularMoviesActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ui.MoviesDetailActivity" -->
+        <!-- android:exported="false" -->
+        <!-- /> -->
         <activity
             android:name=".ui.ProfileActivity"
             android:exported="false" />
@@ -42,13 +45,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".ui.MoviesDetailActivity">
             //additional data about RestaurantActivity
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.monari.movix.MoviesActivity"></meta-data>
+                android:value="com.monari.movix.MoviesActivity" />
         </activity>
 
         <meta-data

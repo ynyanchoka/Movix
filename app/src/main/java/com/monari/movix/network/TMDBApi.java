@@ -32,7 +32,8 @@ public interface TMDBApi {
     );
     @GET ("movie/popular")
     Call<TMDBSearchMoviesResponse> getPopularMovies(
-            @Query("api_key") String api_key
+            @Query("api_key") String api_key,
+            @Query("page") Integer page
     );
 
 

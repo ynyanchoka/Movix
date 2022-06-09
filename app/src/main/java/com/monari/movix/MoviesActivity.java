@@ -6,10 +6,12 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,12 +24,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.monari.movix.Adapters.MoviesListAdapter;
 import com.monari.movix.models.MoviesDetailsResponse;
 import com.monari.movix.models.Result;
 import com.monari.movix.models.TMDBSearchMoviesResponse;
 import com.monari.movix.network.TMDBApi;
 import com.monari.movix.network.TMDBClient;
+import com.monari.movix.ui.FavoritesActivity;
+import com.monari.movix.ui.PopularMoviesActivity;
 
 import retrofit2.Call;
 
@@ -53,6 +58,35 @@ public class MoviesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
         ButterKnife.bind(this);
+
+
+        // Initialize and assign variable
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.search);
+
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch(item.getItemId())
+                {
+                    case R.id.favorites:
+                        startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.search:
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), PopularMoviesActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
 
 

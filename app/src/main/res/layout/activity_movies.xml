@@ -52,12 +52,8 @@
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentEnd="true"
-      android:layout_alignParentRight="true"
-      android:layout_marginTop="80dp"
+      android:layout_height="match_parent"
       android:divider="@color/colorSecondaryText"
-      android:dividerHeight="1dp"
       android:textColor="@color/colorSecondaryText"
       android:textSize="40sp"
       app:fontFamily="@font/roboto"
@@ -79,6 +75,16 @@
       android:textColor="@color/colorSecondaryText"
       android:layout_margin="16dp"
       android:visibility="gone" />
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/bottom_navigation"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_alignParentBottom="true"
+      app:itemBackground="@color/colorTextIcons"
+      app:itemIconTint="@drawable/selector"
+      app:itemTextColor="@drawable/selector"
+      app:menu="@menu/menu_navigation" />
 
 
   </RelativeLayout>

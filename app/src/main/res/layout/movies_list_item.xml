@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_margin="6dp"
     android:id="@+id/moviesListLayout"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#18172e">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="@color/colorDivider">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorDivider"
+        app:cardCornerRadius="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -44,17 +45,6 @@
                 app:fontFamily="@font/roboto"
                 app:layout_constraintStart_toEndOf="@+id/movieImageView"
                 app:layout_constraintTop_toTopOf="parent" />
-
-<!--            <TextView-->
-<!--                android:id="@+id/adultTextview"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:text="Adult"-->
-<!--                android:textColor="@color/colorTextIcons"-->
-<!--                app:fontFamily="@font/roboto"-->
-<!--                app:layout_constraintStart_toStartOf="@+id/releaseDateTextview"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/releaseDateTextview" />-->
 
             <TextView
                 android:id="@+id/ratingMovies"
@@ -102,4 +92,4 @@
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
