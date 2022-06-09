@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.monari.movix">
+    package="com.monari.movixs">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,30 +14,30 @@
         android:theme="@style/Theme.Movix"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.FavoritesActivity"
+            android:name="com.monari.movixs.ui.FavoritesActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.PopularMoviesActivity"
+            android:name="com.monari.movixs.ui.PopularMoviesActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".ui.MoviesDetailActivity" -->
         <!-- android:exported="false" -->
         <!-- /> -->
         <activity
-            android:name=".ui.ProfileActivity"
+            android:name="com.monari.movixs.ui.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MoviesActivity"
+            android:name="com.monari.movixs.MoviesActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SignupActivity"
+            android:name="com.monari.movixs.ui.SignupActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name="com.monari.movixs.ui.LoginActivity"
             android:exported="false"
             android:theme="@style/NoActionBarTheme" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.monari.movixs.MainActivity"
             android:exported="true"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
@@ -46,11 +46,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MoviesDetailActivity">
+        <activity android:name="com.monari.movixs.ui.MoviesDetailActivity">
             //additional data about RestaurantActivity
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.monari.movix.MoviesActivity" />
+                android:value="com.monari.movixs.MoviesActivity" />
         </activity>
 
         <meta-data

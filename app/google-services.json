@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "727284957532",
+    "project_id": "moviee-e3ef6",
+    "storage_bucket": "moviee-e3ef6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727284957532:android:25127c8d8e8712347fc199",
+        "android_client_info": {
+          "package_name": "com.monari.movixs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727284957532-ccl6sesjl9tgaldot17uuf08oev0btl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOYz51tRt8DlUsK4Zv2XCjwIbiynYQNMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727284957532-ccl6sesjl9tgaldot17uuf08oev0btl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
