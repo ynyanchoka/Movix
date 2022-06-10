@@ -53,8 +53,8 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
     private Result mMovies;
     private MoviesListAdapter mAdapter;
 
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
+//    private SharedPreferences mSharedPreferences;
+//    private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
 
     private DatabaseReference mSearchedMovieReference;
