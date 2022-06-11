@@ -1,6 +1,7 @@
 package com.monari.movixs.ui;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -34,6 +36,7 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 
 public class PopularMoviesActivity extends AppCompatActivity {
+    private Context mContext;
 
     private static final String TAG = PopularMoviesActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
     @BindView(R.id.errorTextViewPopular)
@@ -98,8 +101,11 @@ public class PopularMoviesActivity extends AppCompatActivity {
                     results = response.body().getResults();
                     mAdapter = new PopularMoviesAdapter(PopularMoviesActivity.this, results);
                     mRecyclerViewPopular.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(PopularMoviesActivity.this);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
                     mRecyclerViewPopular.setLayoutManager(layoutManager);
+//                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(PopularMoviesActivity.this);
+//
+//                    mRecyclerViewPopular.setLayoutManager(layoutManager);
                     mRecyclerViewPopular.setHasFixedSize(true);
 
                     showMovies();

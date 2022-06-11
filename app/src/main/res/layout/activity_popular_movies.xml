@@ -7,34 +7,25 @@
     android:layout_height="wrap_content"
     tools:context=".ui.PopularMoviesActivity"
     android:background="#18172e">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Trending movies"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:text="Trending movies"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
 
-    <GridView
-        android:id="@+id/recyclerViewPopulars"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:horizontalSpacing="6dp"
-        android:numColumns="2"
-        android:verticalSpacing="6dp" />
-
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerViewPopular"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:visibility="gone" />-->
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPopular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="26dp"
+            android:visibility="gone" />
 
     <ProgressBar
         android:id="@+id/progressBarPopular"

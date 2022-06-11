@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,10 +49,10 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
     public class PopularMoviesViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.popularImageView)
         ImageView mPopularImageView;
-        @BindView(R.id.titleMoviePopular)
-        TextView mTitleMoviePopular;
-        @BindView(R.id.ratingMoviesPopular) TextView mRatingMoviesPopular;
-        @BindView(R.id.releaseDatePopular) TextView mReleaseDatePopular;
+//        @BindView(R.id.titleMoviePopular)
+//        TextView mTitleMoviePopular;
+//        @BindView(R.id.ratingMoviesPopular) TextView mRatingMoviesPopular;
+//        @BindView(R.id.releaseDatePopular) TextView mReleaseDatePopular;
 
         private Context mContext;
 
@@ -63,19 +64,11 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
 
         public void bindPopularMovies(Result result) {
             Picasso.get().load("https://image.tmdb.org/t/p/w500"+result. getPosterPath()).into(mPopularImageView);
-            mTitleMoviePopular.setText(result.getTitle()) ;
-            mReleaseDatePopular.setText(result.getReleaseDate());
-            mRatingMoviesPopular.setText(Double.toString(result.getVoteAverage()) + "/10");
+//            mTitleMoviePopular.setText(result.getTitle()) ;
+//            mReleaseDatePopular.setText(result.getReleaseDate());
+//            mRatingMoviesPopular.setText(Double.toString(result.getVoteAverage()) + "/10");
 
         }
 
-//        @Override
-//        public void onClick(View v) {
-//            int itemPosition = getLayoutPosition();// retrieve the position of the specific list item clicked
-//            Intent intent = new Intent(mContext, MoviesDetailActivity.class);
-//            intent.putExtra("position", itemPosition);
-//            intent.putExtra("movies", Parcels.wrap(mMovies));
-//            mContext.startActivity(intent);
-//        }
     }
 }
