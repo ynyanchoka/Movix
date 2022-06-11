@@ -65,8 +65,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     else {
 
                         Intent intent = new Intent(LoginActivity.this, MoviesActivity.class);
-
                         startActivity(intent);
+                        finish();
                     }
 
             }

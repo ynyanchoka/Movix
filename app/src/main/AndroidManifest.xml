@@ -13,15 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movix"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name="com.monari.movixs.ui.FavoritesActivity"
-            android:exported="false" />
+
         <activity
             android:name="com.monari.movixs.ui.PopularMoviesActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".ui.MoviesDetailActivity" -->
         <!-- android:exported="false" -->
         <!-- /> -->
+        <activity
+            android:name="com.monari.movixs.ui.FavoritesActivity"
+            android:exported="false" />
+
         <activity
             android:name="com.monari.movixs.ui.ProfileActivity"
             android:exported="false" />

@@ -223,11 +223,11 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
 //        mEditor.putString(Constants.PREFERENCES_MOVIE_KEY, movie).apply();
 //    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedMovieReference.removeEventListener(mSearchedMovieReferenceListener);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mSearchedMovieReference.removeEventListener(mSearchedMovieReferenceListener);
+//    }
 
 
     private void showFailureMessage() {

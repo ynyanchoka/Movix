@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/WelcomeSignUp"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:elevation="3dp"
         app:cardCornerRadius="12dp"
         android:layout_marginLeft="20dp"
@@ -97,6 +97,23 @@
                 android:textColorHint="@color/colorSecondaryText"
                 app:fontFamily="@font/roboto" />
 
+            <EditText
+                android:id="@+id/userConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userPassword"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/colorSecondaryText"
+                android:drawableLeft="@drawable/baseline_lock_white_18dp"
+                android:drawablePadding="6dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/colorSecondaryText"
+                app:fontFamily="@font/roboto" />
+
             <Button
                 android:id="@+id/idSignUpButton"
                 android:layout_width="match_parent"
@@ -104,7 +121,7 @@
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
                 android:text="Sign up"
-                android:layout_below="@id/userPassword"
+                android:layout_below="@id/userConfirmPassword"
                 android:textAllCaps="false"
                 android:textColor="@color/colorDark"
                 android:textSize="16sp"
