@@ -119,7 +119,7 @@ public class FavoritesActivity extends AppCompatActivity {
             @NonNull
             @Override
             public FirebaseMoviesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movies_list_item, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.favorites_list_item, parent, false);
                 return new FirebaseMoviesViewHolder(view);
             }
         };

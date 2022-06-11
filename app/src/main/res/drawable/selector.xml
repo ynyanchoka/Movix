@@ -6,6 +6,6 @@
         android:color="@color/colorPrimaryDark"/>
     <item
         android:state_selected="false"
-        android:color="@color/colorPrimaryLight"/>
+        android:color="@color/colorSecondaryText"/>
 
 </selector>

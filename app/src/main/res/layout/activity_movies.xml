@@ -81,7 +81,7 @@
       android:layout_width="match_parent"
       android:layout_height="60dp"
       android:layout_alignParentBottom="true"
-      app:itemBackground="@color/colorTextIcons"
+      app:itemBackground="@color/colorPrimaryText"
       app:itemIconTint="@drawable/selector"
       app:itemTextColor="@drawable/selector"
       app:menu="@menu/menu_navigation" />
