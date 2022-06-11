@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.monari.movixs.Constants;
@@ -108,10 +110,17 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
         }
 
         if (v == mAddFavorites) {
-            DatabaseReference restaurantRef = FirebaseDatabase
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+            DatabaseReference movieRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_MOVIES);
-            restaurantRef.push().setValue(mMovies);
+                    .getReference(Constants.FIREBASE_CHILD_MOVIES)
+                    .child(uid);//to store the given user's list of restaurants.
+            DatabaseReference pushRef = movieRef.push();
+            String pushId = pushRef.getKey();
+            mMovies.setPushId(pushId);
+            pushRef.setValue(mMovies);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
 

@@ -1,5 +1,6 @@
 package com.monari.movixs.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.monari.movixs.R;
@@ -97,15 +101,26 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String password = muserPassword.getText().toString().trim();
         String confirmPassword = mUserConfirmPassword.getText().toString().trim();
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        Log.d(TAG, "Authentication successful");
-                    } else {
-                        Toast.makeText(SignupActivity.this, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(name);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+        if (!validEmail || !validName || !validPassword) return;
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "Authentication successful");
+                } else {
+                    Toast.makeText(SignupActivity.this, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        });
     }
 
     private void createAuthStateListener(){
@@ -133,22 +148,34 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-//            @Override
-//            public void onClick(View view) {
-//             if (view == midSignUpButton){
-//                 String name = mname.getText().toString();
-//                 String userEmail = muserEmail.getText().toString();
-//                 String userPassword = muserPassword.getText().toString();
-//                 if (name.isEmpty()||userEmail.isEmpty()||userPassword.isEmpty()) {
-//
-//                     Toast toast = Toast.makeText(getApplicationContext(), "All the fields are required.",Toast.LENGTH_SHORT);
-//
-//                     TextView toastMessage=(TextView) toast.getView().findViewById(android.R.id.message);
-//                     toastMessage.setTextColor(Color.BLUE);
-//                     toast.show();
-//                 }else{
-//            }
-//        }
-//
-//    }
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail =
+                (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            muserEmail.setError("Please enter a valid email");
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidName(String name) {
+        if (name.equals("")) {
+            mname.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6) {
+            muserPassword.setError("Please create a password containing at least 6 characters");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            muserPassword.setError("Passwords do not match");
+            return false;
+        }
+        return true;
+    }
+
+
 }

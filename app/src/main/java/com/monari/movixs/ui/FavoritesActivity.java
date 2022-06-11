@@ -21,6 +21,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.monari.movixs.Adapters.FirebaseMoviesViewHolder;
@@ -55,6 +56,18 @@ public class FavoritesActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mMovieReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_MOVIES);
+        setUpFirebaseAdapter();
+        hideProgressBar();
+        showMovies();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mMovieReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_MOVIES)
+                .child(uid);
+
         setUpFirebaseAdapter();
         hideProgressBar();
         showMovies();

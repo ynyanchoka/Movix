@@ -56,6 +56,7 @@ public class Result {
     @SerializedName("homepage")
     @Expose
     private String homepage;
+    private String pushId;
 
     /**
      * No args constructor for use in serialization
@@ -219,6 +220,13 @@ public class Result {
 
     public void setHomepage(String homepage) {
         this.homepage = homepage;
+    }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 
