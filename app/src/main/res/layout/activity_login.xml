@@ -129,22 +129,33 @@
                 android:textSize="16sp"
                 app:backgroundTint="@color/colorDivider" />
 
-            <ProgressBar
-                android:id="@+id/firebaseProgressBar"
-                android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/loadingTextView"
-                android:layout_width="wrap_content"
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/firebaseProgressBar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_below="@+id/firebaseProgressBar"
-                android:textColor="@color/colorPrimaryText"
-                android:layout_margin="20dp"
-                android:visibility="gone" />
+                android:indeterminate="true"
+                android:indeterminateTint="@color/darkdark"
+                android:visibility="gone"/>
+
+
+
+<!--                <ProgressBar-->
+<!--                    android:id="@+id/firebaseProgressBar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:visibility="gone" />-->
+
+                <TextView
+                    android:id="@+id/loadingTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/firebaseProgressBar"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="20dp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:visibility="gone" />
 
 
         </RelativeLayout>

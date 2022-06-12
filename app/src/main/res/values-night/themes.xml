@@ -12,6 +12,6 @@
 <!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
 <!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
         <!-- Customize your theme here. -->
-        <item name="android:textColor">@color/colorTextIcons</item>
+        <item name="android:textColor">#6CB4EE</item>
     </style>
 </resources>

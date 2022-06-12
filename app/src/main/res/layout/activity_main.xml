@@ -55,22 +55,7 @@
         />
 
 
-    <Button
-        android:id="@+id/getStartedButton"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginBottom="-5dp"
-        android:layout_marginLeft="-10dp"
-        android:layout_marginRight="-10dp"
-        android:text="Get started"
-        android:textAllCaps="false"
-        android:textColor="@color/colorDark"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:fontFamily="@font/roboto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

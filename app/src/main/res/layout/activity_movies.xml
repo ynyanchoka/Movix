@@ -53,6 +53,7 @@
       android:id="@+id/recyclerView"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:layout_marginTop="26dp"
       android:divider="@color/colorSecondaryText"
       android:textColor="@color/colorSecondaryText"
       android:textSize="40sp"
@@ -81,7 +82,7 @@
       android:layout_width="match_parent"
       android:layout_height="60dp"
       android:layout_alignParentBottom="true"
-      app:itemBackground="@color/colorPrimaryText"
+      app:itemBackground="@color/darkdark"
       app:itemIconTint="@drawable/selector"
       app:itemTextColor="@drawable/selector"
       app:menu="@menu/menu_navigation" />

@@ -49,8 +49,8 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
     public class PopularMoviesViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.popularImageView)
         ImageView mPopularImageView;
-//        @BindView(R.id.titleMoviePopular)
-//        TextView mTitleMoviePopular;
+        @BindView(R.id.overviewTextView)
+        TextView moverviewTextView;
 //        @BindView(R.id.ratingMoviesPopular) TextView mRatingMoviesPopular;
 //        @BindView(R.id.releaseDatePopular) TextView mReleaseDatePopular;
 
@@ -64,7 +64,7 @@ public class PopularMoviesAdapter extends RecyclerView.Adapter<PopularMoviesAdap
 
         public void bindPopularMovies(Result result) {
             Picasso.get().load("https://image.tmdb.org/t/p/w500"+result. getPosterPath()).into(mPopularImageView);
-//            mTitleMoviePopular.setText(result.getTitle()) ;
+            moverviewTextView.setText(result.getOverview()) ;
 //            mReleaseDatePopular.setText(result.getReleaseDate());
 //            mRatingMoviesPopular.setText(Double.toString(result.getVoteAverage()) + "/10");
 

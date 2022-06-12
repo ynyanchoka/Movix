@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +40,8 @@ import com.monari.movixs.ui.FavoritesActivity;
 import com.monari.movixs.ui.PopularMoviesActivity;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MoviesActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,8 +58,8 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
     private Result mMovies;
     private MoviesListAdapter mAdapter;
 
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
 
     private DatabaseReference mSearchedMovieReference;
@@ -88,11 +93,11 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_movies);
         ButterKnife.bind(this);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
-//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_MOVIE_KEY, null);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_MOVIE_KEY, null);
 //        Log.d("Shared Pref movie", mRecentAddress);
-//        String movie = mRecentAddress;
+        String query = mRecentAddress;
 
 
         // Initialize and assign variable
@@ -206,9 +211,9 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
         if (v == mSearchMoviesButton) {
             String query = mSearchView.getQuery().toString();
             saveMovieToFirebase(query);
-//            if(!(movie).equals("")) {
-//                addToSharedPreferences(movie);
-//            }
+            if(!(query).equals("")) {
+                addToSharedPreferences(query);
+            }
             Intent intent = new Intent(MoviesActivity.this, MoviesActivity.class);
             intent.putExtra("query", query);
             startActivity(intent);
@@ -219,9 +224,9 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
         mSearchedMovieReference.push().setValue(query);
     }
 
-//    private void addToSharedPreferences(String movie) {
-//        mEditor.putString(Constants.PREFERENCES_MOVIE_KEY, movie).apply();
-//    }
+    private void addToSharedPreferences(String query) {
+        mEditor.putString(Constants.PREFERENCES_MOVIE_KEY, query).apply();
+    }
 
 //    @Override
 //    protected void onDestroy() {
@@ -247,6 +252,8 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
     }
+
+
 
 
 }

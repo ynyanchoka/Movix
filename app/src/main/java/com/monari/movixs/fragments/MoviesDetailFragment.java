@@ -121,7 +121,7 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
             mMovies.setPushId(pushId);
             pushRef.setValue(mMovies);
 
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Added", Toast.LENGTH_SHORT).show();
         }
 
 
