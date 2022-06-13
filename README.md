@@ -3,7 +3,7 @@
 By Ymelda Monari
 
 # Project Description
-This and android app that collects and tracks movies.
+This and android app that allows a user to search movies. They can also see the trending movies and add them to favorites if they wish to do so.
 
 ## Getting Started
 
@@ -45,6 +45,7 @@ Tests that run locally on the JVM, without an emulator or device.Robolectric  is
 
 ## Contact information
 + Ymelda Monari : `monaryymelda@gmail.com`
+* **Ymelda Monari** - [LinkedIn](https://www.linkedin.com/in/ymeldamonari/)
 
 
 ## Copyright and license information

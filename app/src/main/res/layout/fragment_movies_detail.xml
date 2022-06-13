@@ -109,7 +109,7 @@
                     android:drawablePadding="4dp"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-                    android:text="View trending movies on TMDB"
+                    android:text="View upcoming movies on TMDB"
                     android:textColor="#6CB4EE"
                     android:textSize="16sp"
                    />

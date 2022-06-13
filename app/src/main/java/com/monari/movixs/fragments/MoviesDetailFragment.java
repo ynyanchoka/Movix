@@ -105,7 +105,7 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
         //new implicit intent called webIntent and provide it two arguments: The ACTION_VIEW activity, responsible for displaying data to the user,
         if (v == mHomepageTextView) {
             Intent intent=new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://www.themoviedb.org/movie"));
+            intent.setData(Uri.parse("https://www.themoviedb.org/movie/upcoming"));
             startActivity(intent);
         }
 
