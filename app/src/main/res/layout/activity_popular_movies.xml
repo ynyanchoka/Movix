@@ -42,6 +42,8 @@
         android:layout_centerInParent="true"
         android:textColor="@color/colorSecondaryText"
         android:layout_margin="16dp"
+        android:textSize="14sp"
+        android:textAlignment="center"
         android:visibility="gone" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -44,6 +44,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MoviesActivity extends AppCompatActivity implements View.OnClickListener {
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentAddress;
 
     private static final String TAG = MoviesActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
     @BindView(R.id.errorTextView) TextView mErrorTextView;
@@ -58,9 +61,7 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
     private Result mMovies;
     private MoviesListAdapter mAdapter;
 
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
-    private String mRecentAddress;
+
 
     private DatabaseReference mSearchedMovieReference;
     private ValueEventListener mSearchedMovieReferenceListener;
@@ -96,8 +97,13 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_MOVIE_KEY, null);
-//        Log.d("Shared Pref movie", mRecentAddress);
-        String query = mRecentAddress;
+
+        if(mRecentAddress != null){
+            fetchMovies(mRecentAddress);
+        }
+        mSearchMoviesButton.setOnClickListener(this);
+
+
 
 
         // Initialize and assign variable
@@ -216,6 +222,36 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                fetchMovies(query);
+                return false;
+            }
+
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    @Override
     public void onClick(View v) {
         if (v == mSearchMoviesButton) {
             String query = mSearchView.getQuery().toString();
@@ -268,6 +304,42 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
 
     private void hideShowMovies() {
         mRecyclerView.setVisibility(View.GONE);
+    }
+
+    private void fetchMovies(String query){
+        TMDBApi client = TMDBClient.getClient();
+        Call<TMDBSearchMoviesResponse> call = client.getMovies(BuildConfig.TMDB_API_KEY,mSearchView.getQuery().toString(),1);
+        call.enqueue(new Callback<TMDBSearchMoviesResponse>() {
+            @Override
+            public void onResponse(Call<TMDBSearchMoviesResponse> call, Response<TMDBSearchMoviesResponse> response) {
+
+                hideProgressBar();
+
+                hideProgressBar();
+                if (response.isSuccessful()) {
+
+                    results = response.body().getResults();
+                    mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
+
+                    showMovies();
+                    hideFailureMessage();
+                } else {
+                    showUnsuccessfulMessage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TMDBSearchMoviesResponse> call, Throwable t) {
+                Log.e(TAG, "onFailure: ",t );
+                hideProgressBar();
+                showFailureMessage();
+            }
+
+        });
     }
 
 

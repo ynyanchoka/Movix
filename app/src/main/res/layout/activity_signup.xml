@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/WelcomeSignUp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="70dp"
         android:elevation="3dp"
         app:cardCornerRadius="12dp"
         android:layout_marginLeft="20dp"
@@ -59,7 +59,8 @@
                 android:textColor="@color/colorTextIcons"
                 android:textColorHint="@color/colorSecondaryText"
                 app:backgroundTint="@color/colorSecondaryText"
-                app:fontFamily="@font/roboto" />
+                app:fontFamily="@font/roboto"
+                />
 
 
             <EditText
@@ -77,7 +78,8 @@
                 android:textColorHint="@color/colorSecondaryText"
                 app:fontFamily="@font/roboto"
                 android:drawableLeft="@drawable/baseline_email_white_18dp"
-                android:drawablePadding="6dp"/>
+                android:drawablePadding="6dp"
+                />
 
             <!--edit text for user password-->
             <EditText
@@ -108,7 +110,7 @@
                 android:backgroundTint="@color/colorSecondaryText"
                 android:drawableLeft="@drawable/baseline_lock_white_18dp"
                 android:drawablePadding="6dp"
-                android:hint="Password"
+                android:hint="Confirm password"
                 android:inputType="textPassword"
                 android:textColor="@color/colorTextIcons"
                 android:textColorHint="@color/colorSecondaryText"
@@ -117,16 +119,17 @@
             <Button
                 android:id="@+id/idSignUpButton"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:text="Sign up"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/userConfirmPassword"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/btn"
+                android:text="Sign up"
                 android:textAllCaps="false"
                 android:textColor="@color/colorDark"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginTop="50dp"
                 app:backgroundTint="@color/colorPrimaryDark"
                 app:fontFamily="@font/roboto" />
 
@@ -144,6 +147,54 @@
                 android:textSize="15sp"
                 app:backgroundTint="@color/colorDark"
                 style="?android:attr/borderlessButtonStyle"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/idLoginButton"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="80dp">
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/google"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorDivider"
+                    android:elevation="35dp"
+                    android:src="@drawable/google"
+                    android:layout_marginRight="20dp"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorDivider"
+                    android:elevation="35dp"
+                    android:src="@drawable/facebook"
+                    android:layout_marginRight="20dp"
+
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorDivider"
+                    android:elevation="35dp"
+                    android:src="@drawable/twitter"
+                    />
+            </LinearLayout>
+
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/firebaseProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/darkdark"
+                android:visibility="gone"/>
 
 
         </RelativeLayout>

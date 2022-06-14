@@ -6,4 +6,5 @@ public class Constants {
     public static final String PREFERENCES_MOVIE_KEY = "query";
     public static final String FIREBASE_CHILD_SEARCHED_MOVIE = "searchedMovie";
     public static final String FIREBASE_CHILD_MOVIES = "results";
+
 }

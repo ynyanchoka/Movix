@@ -45,7 +45,7 @@ Tests that run locally on the JVM, without an emulator or device.Robolectric  is
 
 ## Contact information
 + Ymelda Monari : `monaryymelda@gmail.com`
-* **Ymelda Monari** - [LinkedIn](https://www.linkedin.com/in/ymeldamonari/)
+* Ymelda Monari : [LinkedIn](https://www.linkedin.com/in/ymeldamonari/)
 
 
 ## Copyright and license information

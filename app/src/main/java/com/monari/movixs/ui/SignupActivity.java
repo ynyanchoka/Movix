@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.userPassword) EditText muserPassword;
     @BindView(R.id.idLoginButton) Button mIdLoginButton;
     @BindView(R.id.userConfirmPassword) EditText mUserConfirmPassword;
+    @BindView(R.id.firebaseProgressBar)
+    ProgressBar mSignInProgressBar;
 
 
     private Button idSignUpButton;
@@ -91,7 +94,11 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (v == midSignUpButton) {
                     createNewUser();
+                    showProgressBar();
                 }
+
+
+
 
             }
 
@@ -110,6 +117,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                hideProgressBar();
 
                 if (task.isSuccessful()) {
                     Log.d(TAG, "Authentication successful");
@@ -175,6 +183,14 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             return false;
         }
         return true;
+    }
+
+    private void showProgressBar() {
+        mSignInProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mSignInProgressBar.setVisibility(View.GONE);
     }
 
 
