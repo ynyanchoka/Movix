@@ -16,7 +16,8 @@
         android:layout_marginBottom="8dp"
         android:background="#18172e"
         android:text="Trending movies"
-        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textColor="#CECDDF"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView

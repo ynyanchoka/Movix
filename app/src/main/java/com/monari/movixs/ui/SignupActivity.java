@@ -19,7 +19,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.monari.movixs.R;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +38,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.userConfirmPassword) EditText mUserConfirmPassword;
     @BindView(R.id.firebaseProgressBar)
     ProgressBar mSignInProgressBar;
+    private String mName;
+
 
 
     private Button idSignUpButton;
@@ -103,32 +108,35 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             }
 
     private void createNewUser() {
+        mName = mname.getText().toString().trim();
         final String name = mname.getText().toString().trim();
         final String email = muserEmail.getText().toString().trim();
         String password = muserPassword.getText().toString().trim();
         String confirmPassword = mUserConfirmPassword.getText().toString().trim();
 
+        boolean validmName = isValidName(mName);
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
 
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                hideProgressBar();
+        showProgressBar();//called after the form validation methods have returned true.
+        //built-in Firebase method createUserWithEmailAndPassword() to create a new user account in Firebase
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    hideProgressBar();
 
-                if (task.isSuccessful()) {
-                    Log.d(TAG, "Authentication successful");
-                } else {
-                    Toast.makeText(SignupActivity.this, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show();
-                }
+                    if (task.isSuccessful()) {
 
-            }
+                        createFirebaseUserProfile(Objects.requireNonNull(task.getResult().getUser()));//grab the result from the Task object returned in onComplete(). We may then retrieve the specific user by calling Firebase's getUser() method.
+                        Log.d(TAG, "Authentication successful");
+                    } else {
+                        Toast.makeText(SignupActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
 
-        });
+                });
     }
 
     private void createAuthStateListener(){
@@ -191,6 +199,26 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private void hideProgressBar() {
         mSignInProgressBar.setVisibility(View.GONE);
+    }
+
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mName)
+                .build();
+
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, Objects.requireNonNull(user.getDisplayName()));
+                            Toast.makeText(SignupActivity.this, "The display name has ben set", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                });
     }
 
 

@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Welcome"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:elevation="3dp"
         app:cardCornerRadius="12dp"
         android:inputType="textPassword"
@@ -116,13 +116,86 @@
                 app:backgroundTint="@color/colorPrimaryDark"
                 app:cornerRadius="20dp" />
 
+            <LinearLayout
+                android:id="@+id/or"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_below="@id/idLoginButton"
+                android:layout_marginStart="80dp"
+                >
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="5"
+                    android:background="@color/colorPrimaryDark" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textAlignment="center"
+                    android:text="OR"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorTextIcons"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="5"
+                    android:background="@color/colorPrimaryDark"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/or"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginTop="10dp">
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/google"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorDivider"
+                    android:elevation="35dp"
+                    android:src="@drawable/google"
+                    android:layout_marginRight="20dp"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorDivider"
+                    android:elevation="35dp"
+                    android:src="@drawable/facebook"
+                    android:layout_marginRight="20dp"
+
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorDivider"
+                    android:elevation="35dp"
+                    android:src="@drawable/twitter__1_"
+                    android:layout_marginRight="0dp"
+                    />
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/signUpButton"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/idLoginButton"
+                android:layout_below="@id/linearLayout"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
                 android:fontFamily="@font/roboto"
@@ -160,44 +233,7 @@
                     android:textColor="@color/colorPrimaryText"
                     android:visibility="gone" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/signUpButton"
-                android:layout_marginStart="80dp"
-                android:layout_marginEnd="80dp">
 
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/google"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorDivider"
-                    android:elevation="35dp"
-                    android:src="@drawable/google"
-                    android:layout_marginRight="20dp"
-                    />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/facebook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorDivider"
-                    android:elevation="35dp"
-                    android:src="@drawable/facebook"
-                    android:layout_marginRight="20dp"
-
-                   />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/twitter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorDivider"
-                    android:elevation="35dp"
-                    android:src="@drawable/twitter"
-                  />
-            </LinearLayout>
 
 
         </RelativeLayout>

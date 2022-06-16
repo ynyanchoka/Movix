@@ -13,7 +13,7 @@
         <entry key="app/src/main/res/font/roboto_mono_thin.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/font/roboto_thin.xml" value="0.3138888888888889" />
         <entry key="app/src/main/res/layout/activity_favorites.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.55130615234375" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.10016589204141912" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19802246093750003" />
         <entry key="app/src/main/res/layout/activity_movies.xml" value="0.38134460449218754" />
         <entry key="app/src/main/res/layout/activity_movies_detail.xml" value="0.37604166666666666" />
@@ -21,11 +21,12 @@
         <entry key="app/src/main/res/layout/activity_popularmovies.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.43628321108610735" />
         <entry key="app/src/main/res/layout/activity_search_results.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/favorites_list_item.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.22086639404296882" />
+        <entry key="app/src/main/res/layout/favorites_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_movies_detail.xml" value="0.254888916015625" />
+        <entry key="app/src/main/res/layout/layouttrial.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/movies_list_item.xml" value="0.4366769861291956" />
-        <entry key="app/src/main/res/layout/popular_list_item.xml" value="0.2978723404255319" />
+        <entry key="app/src/main/res/layout/popular_list_item.xml" value="0.27450980392156865" />
         <entry key="app/src/main/res/layout/trial.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/layout/trial2.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.22407407407407406" />

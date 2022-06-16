@@ -29,7 +29,8 @@
             android:exported="false" />
         <activity
             android:name="com.monari.movixs.MoviesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name="com.monari.movixs.ui.SignupActivity"
             android:exported="false"
