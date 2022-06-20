@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,71 +39,97 @@ import com.monari.movixs.models.TMDBSearchMoviesResponse;
 import com.monari.movixs.network.TMDBApi;
 import com.monari.movixs.network.TMDBClient;
 import com.monari.movixs.ui.FavoritesActivity;
+import com.monari.movixs.ui.MoviesDetailActivity;
 import com.monari.movixs.ui.PopularMoviesActivity;
+import com.monari.movixs.util.OnMovieSelectedListener;
+
+import org.parceler.Parcels;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MoviesActivity extends AppCompatActivity implements View.OnClickListener {
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
-    private String mRecentAddress;
-
-    private static final String TAG = MoviesActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
-    @BindView(R.id.errorTextView) TextView mErrorTextView;
-    @BindView(R.id.progressBar) ProgressBar mProgressBar;
-    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-    @BindView(R.id.searchMovies) SearchView mSearchView;
-    @BindView(R.id.searchMoviesButton) Button mSearchMoviesButton;
-
-    TMDBApi tmdbApi;
-
-    public List<Result> results;
-    private Result mMovies;
-    private MoviesListAdapter mAdapter;
-
-
-
-    private DatabaseReference mSearchedMovieReference;
-    private ValueEventListener mSearchedMovieReferenceListener;
+public class MoviesActivity extends AppCompatActivity implements OnMovieSelectedListener {
+    private Integer mPosition;
+    ArrayList<Result> mMovies;
+//    private SharedPreferences mSharedPreferences;
+//    private SharedPreferences.Editor mEditor;
+//    private String mRecentAddress;
+//
+//    private static final String TAG = MoviesActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
+//    @BindView(R.id.errorTextView) TextView mErrorTextView;
+//    @BindView(R.id.progressBar) ProgressBar mProgressBar;
+//    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+//    @BindView(R.id.searchMovies) SearchView mSearchView;
+//    @BindView(R.id.searchMoviesButton) Button mSearchMoviesButton;
+//
+//    TMDBApi tmdbApi;
+//
+//    public List<Result> results;
+//    private Result mMovies;
+//    private MoviesListAdapter mAdapter;
+//
+//
+//
+//    private DatabaseReference mSearchedMovieReference;
+//    private ValueEventListener mSearchedMovieReferenceListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        mSearchedMovieReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_MOVIE);
-        mSearchedMovieReference.addValueEventListener(new ValueEventListener() { //attach listener
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
-                for (DataSnapshot movieSnapshot : dataSnapshot.getChildren()) {
-                    String query = movieSnapshot.getValue().toString();
-                    Log.d("Movies updated", "Movie: " + query); //log
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        mSearchedMovieReference = FirebaseDatabase
+//                .getInstance()
+//                .getReference()
+//                .child(Constants.FIREBASE_CHILD_SEARCHED_MOVIE);
+//        mSearchedMovieReference.addValueEventListener(new ValueEventListener() { //attach listener
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
+//                for (DataSnapshot movieSnapshot : dataSnapshot.getChildren()) {
+//                    String query = movieSnapshot.getValue().toString();
+//                    Log.d("Movies updated", "Movie: " + query); //log
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
-        ButterKnife.bind(this);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
-        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_MOVIE_KEY, null);
+        if (savedInstanceState != null) {
 
-        if(mRecentAddress != null){
-            fetchMovies(mRecentAddress);
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                mPosition = savedInstanceState.getInt(Constants.EXTRA_KEY_POSITION);
+                mMovies = Parcels.unwrap(savedInstanceState.getParcelable(Constants.EXTRA_KEY_MOVIES));
+
+                if (mPosition != null && mMovies != null) {
+                    Intent intent = new Intent(this, MoviesDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, mPosition);
+                    intent.putExtra(Constants.EXTRA_KEY_MOVIES, Parcels.wrap(mMovies));
+                    startActivity(intent);
+                }
+
+            }
+
         }
-        mSearchMoviesButton.setOnClickListener(this);
+
+
+//        ButterKnife.bind(this);
+
+//
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_MOVIE_KEY, null);
+
+//        if(mRecentAddress != null){
+//            fetchMovies(mRecentAddress);
+//        }
+//        mSearchMoviesButton.setOnClickListener(this);
 
 
 
@@ -138,46 +166,46 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
-
-        tmdbApi = TMDBClient.getClient();
-        mSearchMoviesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                retrofit2.Call<TMDBSearchMoviesResponse> call = tmdbApi.getMovies(BuildConfig.TMDB_API_KEY,mSearchView.getQuery().toString(),1);
-                call.enqueue(new retrofit2.Callback<TMDBSearchMoviesResponse>() {
-                    @Override
-                    public void onResponse(retrofit2.Call<TMDBSearchMoviesResponse> call, retrofit2.Response<TMDBSearchMoviesResponse> response) {
-
-                        hideProgressBar();
-                        if (response.isSuccessful()) {
-
-                        results = response.body().getResults();
-                        mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
-                        mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
-
-                        showMovies();
-                        hideFailureMessage();
-                        } else {
-                            showUnsuccessfulMessage();
-                            hideShowMovies();
-                        }
-                    }
-
-
-
-                    @Override
-                    public void onFailure(Call<TMDBSearchMoviesResponse> call, Throwable t) {
-
-                        Log.i(TAG, "onFailure: show something ",t );
-                        t.printStackTrace();
-                        hideProgressBar();
-                        showFailureMessage();
-
-                    }
-                });
+//
+//        tmdbApi = TMDBClient.getClient();
+//        mSearchMoviesButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                retrofit2.Call<TMDBSearchMoviesResponse> call = tmdbApi.getMovies(BuildConfig.TMDB_API_KEY,mSearchView.getQuery().toString(),1);
+//                call.enqueue(new retrofit2.Callback<TMDBSearchMoviesResponse>() {
+//                    @Override
+//                    public void onResponse(retrofit2.Call<TMDBSearchMoviesResponse> call, retrofit2.Response<TMDBSearchMoviesResponse> response) {
+//
+//                        hideProgressBar();
+//                        if (response.isSuccessful()) {
+//
+//                        results = response.body().getResults();
+//                        mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
+//                        mRecyclerView.setAdapter(mAdapter);
+//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
+//                        mRecyclerView.setLayoutManager(layoutManager);
+//                        mRecyclerView.setHasFixedSize(true);
+//
+//                        showMovies();
+//                        hideFailureMessage();
+//                        } else {
+//                            showUnsuccessfulMessage();
+//                            hideShowMovies();
+//                        }
+//                    }
+//
+//
+//
+//                    @Override
+//                    public void onFailure(Call<TMDBSearchMoviesResponse> call, Throwable t) {
+//
+//                        Log.i(TAG, "onFailure: show something ",t );
+//                        t.printStackTrace();
+//                        hideProgressBar();
+//                        showFailureMessage();
+//
+//                    }
+//                });
 
                 //tvshows
 //                call = tmdbApi.getTvShows(BuildConfig.TMDB_API_KEY, mSearchView.getQuery().toString(), 1);
@@ -215,11 +243,31 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
 //                    }
 //                });
 
-            }
-        });
+//            }
+//        });
 
 
     }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        if (mPosition != null && mMovies != null) {
+            outState.putInt(Constants.EXTRA_KEY_POSITION, mPosition);
+            outState.putParcelable(Constants.EXTRA_KEY_MOVIES, Parcels.wrap(mMovies));
+        }
+
+    }
+
+    @Override
+    public void onMovieSelected(Integer position, ArrayList<Result> results) {
+        mPosition = position;
+        mMovies = results;
+    }
+
+
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu){
@@ -251,27 +299,27 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
 //        return true;
 //    }
 
-    @Override
-    public void onClick(View v) {
-        if (v == mSearchMoviesButton) {
-            String query = mSearchView.getQuery().toString();
-            saveMovieToFirebase(query);
-            if(!(query).equals("")) {
-                addToSharedPreferences(query);
-            }
-            Intent intent = new Intent(MoviesActivity.this, MoviesActivity.class);
-            intent.putExtra("query", query);
-            startActivity(intent);
-        }
-    }
-
-    public void saveMovieToFirebase(String query) {
-        mSearchedMovieReference.push().setValue(query);
-    }
-
-    private void addToSharedPreferences(String query) {
-        mEditor.putString(Constants.PREFERENCES_MOVIE_KEY, query).apply();
-    }
+//    @Override
+//    public void onClick(View v) {
+//        if (v == mSearchMoviesButton) {
+//            String query = mSearchView.getQuery().toString();
+//            saveMovieToFirebase(query);
+//            if(!(query).equals("")) {
+//                addToSharedPreferences(query);
+//            }
+//            Intent intent = new Intent(MoviesActivity.this, MoviesActivity.class);
+//            intent.putExtra("query", query);
+//            startActivity(intent);
+//        }
+//    }
+//
+//    public void saveMovieToFirebase(String query) {
+//        mSearchedMovieReference.push().setValue(query);
+//    }
+//
+//    private void addToSharedPreferences(String query) {
+//        mEditor.putString(Constants.PREFERENCES_MOVIE_KEY, query).apply();
+//    }
 
 //    @Override
 //    protected void onDestroy() {
@@ -279,68 +327,68 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
 //        mSearchedMovieReference.removeEventListener(mSearchedMovieReferenceListener);
 //    }
 
-
-    private void showFailureMessage() {
-        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-        mErrorTextView.setVisibility(View.VISIBLE);
-    }
-
-    private void showUnsuccessfulMessage() {
-        mErrorTextView.setText("Something went wrong. Please try again later");
-        mErrorTextView.setVisibility(View.VISIBLE);
-    }
-
-    private void showMovies() {
-        mRecyclerView.setVisibility(View.VISIBLE);
-    }
-
-    private void hideProgressBar() {
-        mProgressBar.setVisibility(View.GONE);
-    }
-
-    private void hideFailureMessage() {
-        mErrorTextView.setVisibility(View.GONE);
-    }
-
-    private void hideShowMovies() {
-        mRecyclerView.setVisibility(View.GONE);
-    }
-
-    private void fetchMovies(String query){
-        TMDBApi client = TMDBClient.getClient();
-        Call<TMDBSearchMoviesResponse> call = client.getMovies(BuildConfig.TMDB_API_KEY,mSearchView.getQuery().toString(),1);
-        call.enqueue(new Callback<TMDBSearchMoviesResponse>() {
-            @Override
-            public void onResponse(Call<TMDBSearchMoviesResponse> call, Response<TMDBSearchMoviesResponse> response) {
-
-                hideProgressBar();
-
-                hideProgressBar();
-                if (response.isSuccessful()) {
-
-                    results = response.body().getResults();
-                    mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
-                    mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
-                    mRecyclerView.setLayoutManager(layoutManager);
-                    mRecyclerView.setHasFixedSize(true);
-
-                    showMovies();
-                    hideFailureMessage();
-                } else {
-                    showUnsuccessfulMessage();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<TMDBSearchMoviesResponse> call, Throwable t) {
-                Log.e(TAG, "onFailure: ",t );
-                hideProgressBar();
-                showFailureMessage();
-            }
-
-        });
-    }
+//
+//    private void showFailureMessage() {
+//        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+//        mErrorTextView.setVisibility(View.VISIBLE);
+//    }
+//
+//    private void showUnsuccessfulMessage() {
+//        mErrorTextView.setText("Something went wrong. Please try again later");
+//        mErrorTextView.setVisibility(View.VISIBLE);
+//    }
+//
+//    private void showMovies() {
+//        mRecyclerView.setVisibility(View.VISIBLE);
+//    }
+//
+//    private void hideProgressBar() {
+//        mProgressBar.setVisibility(View.GONE);
+//    }
+//
+//    private void hideFailureMessage() {
+//        mErrorTextView.setVisibility(View.GONE);
+//    }
+//
+//    private void hideShowMovies() {
+//        mRecyclerView.setVisibility(View.GONE);
+//    }
+//
+//    private void fetchMovies(String query){
+//        TMDBApi client = TMDBClient.getClient();
+//        Call<TMDBSearchMoviesResponse> call = client.getMovies(BuildConfig.TMDB_API_KEY,mSearchView.getQuery().toString(),1);
+//        call.enqueue(new Callback<TMDBSearchMoviesResponse>() {
+//            @Override
+//            public void onResponse(Call<TMDBSearchMoviesResponse> call, Response<TMDBSearchMoviesResponse> response) {
+//
+//                hideProgressBar();
+//
+//                hideProgressBar();
+//                if (response.isSuccessful()) {
+//
+//                    results = response.body().getResults();
+//                    mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
+//                    mRecyclerView.setAdapter(mAdapter);
+//                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
+//                    mRecyclerView.setLayoutManager(layoutManager);
+//                    mRecyclerView.setHasFixedSize(true);
+//
+//                    showMovies();
+//                    hideFailureMessage();
+//                } else {
+//                    showUnsuccessfulMessage();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<TMDBSearchMoviesResponse> call, Throwable t) {
+//                Log.e(TAG, "onFailure: ",t );
+//                hideProgressBar();
+//                showFailureMessage();
+//            }
+//
+//        });
+//    }
 
 
 }

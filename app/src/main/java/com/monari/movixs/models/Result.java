@@ -57,6 +57,8 @@ public class Result {
     @Expose
     private String homepage;
     private String pushId;
+    String index;
+
 
     /**
      * No args constructor for use in serialization
@@ -100,6 +102,8 @@ public class Result {
         this.voteAverage = voteAverage;
         this.voteCount = voteCount;
         this.homepage = homepage;
+        this.index = "not_specified";
+
     }
 
     public Boolean getAdult() {
@@ -227,6 +231,14 @@ public class Result {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 

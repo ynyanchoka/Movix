@@ -1,6 +1,7 @@
 
 package com.monari.movixs.models;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -15,7 +16,7 @@ public class TMDBSearchMoviesResponse {
     private Integer page;
     @SerializedName("results")
     @Expose
-    private List<Result> results = null;
+    private ArrayList<Result> results = null;
     @SerializedName("total_pages")
     @Expose
     private Integer totalPages;
@@ -37,7 +38,7 @@ public class TMDBSearchMoviesResponse {
      * @param page
      * @param results
      */
-    public TMDBSearchMoviesResponse(Integer page, List<Result> results, Integer totalPages, Integer totalResults) {
+    public TMDBSearchMoviesResponse(Integer page, ArrayList<Result> results, Integer totalPages, Integer totalResults) {
         super();
         this.page = page;
         this.results = results;
@@ -53,11 +54,11 @@ public class TMDBSearchMoviesResponse {
         this.page = page;
     }
 
-    public List<Result> getResults() {
+    public ArrayList<Result> getResults() {
         return results;
     }
 
-    public void setResults(List<Result> results) {
+    public void setResults(ArrayList<Result> results) {
         this.results = results;
     }
 

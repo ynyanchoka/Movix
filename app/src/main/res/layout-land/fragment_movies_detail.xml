@@ -1,0 +1,139 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#18172e"
+    tools:context="com.monari.movixs.fragments.MoviesDetailFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/posterPathImageView"
+                android:src="@drawable/p14097646_p_v12_at"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Overview"
+                    android:id="@+id/overviewTextView"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/homepageTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="View upcoming movies on TMDB"
+                    android:textColor="#6CB4EE"
+                    android:textSize="16sp"
+                    android:paddingLeft="10dp"
+                    />
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:background="#18172e">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+
+                <TextView
+                    android:id="@+id/genreTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/movieNameTextView"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/roboto"
+                    android:text="Drama,comedy"
+                    android:textColor="@color/colorSecondaryText" />
+
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#18172e">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Movie Name"
+                    android:id="@+id/movieNameTextView"
+                    android:textSize="20sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ratingMovies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="4.5/5"
+                    android:textColor="@color/colorTextIcons"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_weight="6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Add To Favorites"
+            android:textAllCaps="false"
+            android:id="@+id/addFavorites"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorTextIcons"
+            android:textSize="15sp" />
+    </LinearLayout>
+</FrameLayout>
