@@ -132,8 +132,8 @@
             android:textAllCaps="false"
             android:id="@+id/addFavorites"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorAccent"
             android:textColor="@color/colorTextIcons"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:background="@drawable/btn"/>
     </LinearLayout>
 </FrameLayout>
