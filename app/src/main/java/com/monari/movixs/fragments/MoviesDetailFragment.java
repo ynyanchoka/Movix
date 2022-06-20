@@ -61,8 +61,10 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
         MoviesDetailFragment movieDetailFragment = new MoviesDetailFragment();
         Bundle args = new Bundle();
 
-        args.putParcelable(Constants.EXTRA_KEY_MOVIES, Parcels.wrap(movie));
-        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+        args.putParcelable("movie", Parcels.wrap(movie));
+
+//        args.putParcelable(Constants.EXTRA_KEY_MOVIES, Parcels.wrap(movie));
+//        args.putInt(Constants.EXTRA_KEY_POSITION, position);
 
         movieDetailFragment.setArguments(args);
         return movieDetailFragment;
@@ -71,9 +73,11 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        assert getArguments() != null;
-        mMovies = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_MOVIES));
-        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        assert getArguments() != null;
+        mMovies = Parcels.unwrap(getArguments().getParcelable("movie"));
+        mMovie = Parcels.unwrap(getArguments().getParcelable("detail"));
+//        mMovies = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_MOVIES));
+//        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
         mMovie = mMovies.get(mPosition);
 //        mMovie = Parcels.unwrap(getArguments().getParcelable("detail"));
     }

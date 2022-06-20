@@ -33,6 +33,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class FirebaseMovieListAdapter extends FirebaseRecyclerAdapter<Result, FirebaseMoviesViewHolder> implements ItemTouchHelperAdapter {
 
@@ -40,7 +41,7 @@ public class FirebaseMovieListAdapter extends FirebaseRecyclerAdapter<Result, Fi
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
     private ChildEventListener mChildEventListener;
-    private ArrayList<Result> mMovies = new ArrayList<>();
+    private List <Result> mMovies;
     private int mOrientation;
 
 
@@ -90,7 +91,7 @@ public class FirebaseMovieListAdapter extends FirebaseRecyclerAdapter<Result, Fi
 
         mOrientation = firebaseMoviesViewHolder.itemView.getResources().getConfiguration().orientation;
         if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
-            createDetailFragment(0);
+//            createDetailFragment(0);
         }
 
         firebaseMoviesViewHolder.mMovieImageView.setOnTouchListener(new View.OnTouchListener() {
@@ -109,7 +110,7 @@ public class FirebaseMovieListAdapter extends FirebaseRecyclerAdapter<Result, Fi
             public void onClick(View v) {
                 int itemPosition = firebaseMoviesViewHolder.getAdapterPosition();
                 if (mOrientation == Configuration.ORIENTATION_LANDSCAPE){
-                    createDetailFragment(itemPosition);
+//                    createDetailFragment(itemPosition);
                 } else {
                     Intent intent = new Intent(mContext, MoviesDetailActivity.class);
                     intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
@@ -157,13 +158,13 @@ public class FirebaseMovieListAdapter extends FirebaseRecyclerAdapter<Result, Fi
         mRef.removeEventListener(mChildEventListener);
     }
 
-    private void createDetailFragment(int position) {
-        MoviesDetailFragment detailFragment = MoviesDetailFragment.newInstance(mMovies, position);
-        // Gathers necessary components to replace the FrameLayout in the layout with the RestaurantDetailFragment:
-        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
-        //  Replaces the FrameLayout with the RestaurantDetailFragment:
-        ft.replace(R.id.restaurantDetailContainer, detailFragment);
-        // Commits these changes:
-        ft.commit();
-    }
+//    private void createDetailFragment(int position) {
+//        MoviesDetailFragment detailFragment = MoviesDetailFragment.newInstance(mMovies, position);
+//        // Gathers necessary components to replace the FrameLayout in the layout with the RestaurantDetailFragment:
+//        FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+//        //  Replaces the FrameLayout with the RestaurantDetailFragment:
+//        ft.replace(R.id.restaurantDetailContainer, detailFragment);
+//        // Commits these changes:
+//        ft.commit();
+//    }
 }
