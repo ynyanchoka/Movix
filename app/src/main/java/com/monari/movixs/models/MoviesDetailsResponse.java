@@ -90,7 +90,6 @@ public class MoviesDetailsResponse{
      * @param imdbId
      * @param video
      * @param title
-     * @param productionCountries
      * @param revenue
      * @param genres
      * @param popularity
@@ -109,7 +108,6 @@ public class MoviesDetailsResponse{
      * @param backdropPath
      * @param voteCount
      * @param adult
-     * @param productionCompanies
      * @param homepage
      * @param status
      */

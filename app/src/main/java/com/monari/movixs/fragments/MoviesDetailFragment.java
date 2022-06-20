@@ -81,14 +81,14 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
 
 
         Picasso.get().load("https://image.tmdb.org/t/p/w500"+mMovies. getPosterPath()).into(mPosterPathImageView);
-        List<Integer> genres  = new ArrayList<>();
+//        List<Integer> genres  = new ArrayList<>();
 
 //        for (Genre genre: mMovie.getGenreIds()) {
 //            genres.add(genre.getName());
 //        }
 
         mMovieNameTextView.setText(mMovies.getTitle());
-        mGenreTextView.setText(android.text.TextUtils.join(", ", genres));
+//        mGenreTextView.setText(android.text.TextUtils.join(", ", genres));
         mRatingMovies.setText(Double.toString(mMovies.getVoteAverage()) + "/10");
         mOverviewTextView.setText(mMovies.getOverview());
 
