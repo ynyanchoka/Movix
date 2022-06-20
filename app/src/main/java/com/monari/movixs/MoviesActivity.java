@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,7 +39,11 @@ import com.monari.movixs.models.TMDBSearchMoviesResponse;
 import com.monari.movixs.network.TMDBApi;
 import com.monari.movixs.network.TMDBClient;
 import com.monari.movixs.ui.FavoritesActivity;
+import com.monari.movixs.ui.MoviesDetailActivity;
 import com.monari.movixs.ui.PopularMoviesActivity;
+import com.monari.movixs.util.OnMovieSelectedListener;
+
+import org.parceler.Parcels;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,7 +63,7 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
 
     TMDBApi tmdbApi;
 
-    public List<Result> results;
+    public ArrayList<Result> results;
     private Result mMovies;
     private MoviesListAdapter mAdapter;
 
@@ -151,15 +157,15 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
                         hideProgressBar();
                         if (response.isSuccessful()) {
 
-                        results = response.body().getResults();
-                        mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
-                        mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
+                            results = response.body().getResults();
+                            mAdapter = new MoviesListAdapter(MoviesActivity.this, results);
+                            mRecyclerView.setAdapter(mAdapter);
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MoviesActivity.this);
+                            mRecyclerView.setLayoutManager(layoutManager);
+                            mRecyclerView.setHasFixedSize(true);
 
-                        showMovies();
-                        hideFailureMessage();
+                            showMovies();
+                            hideFailureMessage();
                         } else {
                             showUnsuccessfulMessage();
                             hideShowMovies();

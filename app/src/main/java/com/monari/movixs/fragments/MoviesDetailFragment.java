@@ -45,28 +45,37 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.homepageTextView) TextView mHomepageTextView;
     @BindView(R.id.addFavorites) TextView mAddFavorites;
 
-    private Result mMovies;
-    private MoviesDetailsResponse mMovie;
+    //    private Result mMovies;
+//    private MoviesDetailsResponse mMovie;
+    private int mPosition;
+
+    private Result mMovie;
+    private ArrayList<Result> mMovies;
 
     public MoviesDetailFragment() {
         // Required empty public constructor
 
     }
 
-    public static MoviesDetailFragment newInstance(Result movie) {
+    public static MoviesDetailFragment newInstance(ArrayList<Result> movie , Integer position) {
         MoviesDetailFragment movieDetailFragment = new MoviesDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("movie", Parcels.wrap(movie));
+
+        args.putParcelable(Constants.EXTRA_KEY_MOVIES, Parcels.wrap(movie));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         movieDetailFragment.setArguments(args);
         return movieDetailFragment;
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        assert getArguments() != null;
-        mMovies = Parcels.unwrap(getArguments().getParcelable("movie"));
-        mMovie = Parcels.unwrap(getArguments().getParcelable("detail"));
+//        assert getArguments() != null;
+        mMovies = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_MOVIES));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mMovie = mMovies.get(mPosition);
+//        mMovie = Parcels.unwrap(getArguments().getParcelable("detail"));
     }
 
 
@@ -80,17 +89,17 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
         ButterKnife.bind(this, view);
 
 
-        Picasso.get().load("https://image.tmdb.org/t/p/w500"+mMovies. getPosterPath()).into(mPosterPathImageView);
-//        List<Integer> genres  = new ArrayList<>();
+        Picasso.get().load("https://image.tmdb.org/t/p/w500"+mMovie. getPosterPath()).into(mPosterPathImageView);
+        List<Integer> genres  = new ArrayList<>();
 
 //        for (Genre genre: mMovie.getGenreIds()) {
 //            genres.add(genre.getName());
 //        }
 
-        mMovieNameTextView.setText(mMovies.getTitle());
-//        mGenreTextView.setText(android.text.TextUtils.join(", ", genres));
-        mRatingMovies.setText(Double.toString(mMovies.getVoteAverage()) + "/10");
-        mOverviewTextView.setText(mMovies.getOverview());
+        mMovieNameTextView.setText(mMovie.getTitle());
+        mGenreTextView.setText(android.text.TextUtils.join(", ", genres));
+        mRatingMovies.setText(Double.toString(mMovie.getVoteAverage()) + "/10");
+        mOverviewTextView.setText(mMovie.getOverview());
 
 
         mHomepageTextView.setOnClickListener(this);
@@ -118,7 +127,7 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
                     .child(uid);//to store the given user's list of restaurants.
             DatabaseReference pushRef = movieRef.push();
             String pushId = pushRef.getKey();
-            mMovies.setPushId(pushId);
+            mMovie.setPushId(pushId);
             pushRef.setValue(mMovies);
 
             Toast.makeText(getContext(), "Added", Toast.LENGTH_SHORT).show();

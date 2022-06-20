@@ -8,20 +8,21 @@ import androidx.fragment.app.Fragment;
 import com.monari.movixs.fragments.MoviesDetailFragment;
 import com.monari.movixs.models.Result;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MoviePagerAdapter extends FragmentPagerAdapter {
 
-    private List<Result> mMovies;
+    private ArrayList<Result> mMovies;
     //constructor where we set the required FragmentManager and array list of restaurants we will be swiping through.
-    public MoviePagerAdapter(@NonNull FragmentManager fm, int behavior, List<Result> movies) {
+    public MoviePagerAdapter(@NonNull FragmentManager fm, int behavior, ArrayList<Result> movies) {
         super(fm, behavior);
         mMovies = movies;
     }
 
     @Override
     public Fragment getItem(int position) {// // returns an instance of the RestaurantDetailFragment for the restaurant in the position provided as an argument.
-        return MoviesDetailFragment.newInstance(mMovies.get(position));
+        return MoviesDetailFragment.newInstance(mMovies,position);
     }
 
     @Override

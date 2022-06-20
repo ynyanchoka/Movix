@@ -31,6 +31,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/dragIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="bottom|left"
+                android:src="@drawable/baseline_reorder_white_18dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="170dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+           />
+
             <TextView
                 android:id="@+id/titleMovie"
                 android:layout_width="180dp"
@@ -76,18 +88,6 @@
                 app:layout_constraintStart_toEndOf="@+id/movieImageView"
                 app:layout_constraintTop_toBottomOf="@+id/titleMovie" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginBottom="16dp"
-                android:text="See more >>>"
-                android:textStyle="bold"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="16sp"
-                app:fontFamily="@font/roboto"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ratingMovies" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
