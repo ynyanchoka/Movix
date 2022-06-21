@@ -2,6 +2,7 @@ package com.monari.movixs.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -38,7 +39,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @BindView(R.id.userConfirmPassword) EditText mUserConfirmPassword;
     @BindView(R.id.firebaseProgressBar)
     ProgressBar mSignInProgressBar;
+    @BindView(R.id.cardSignUp)
+    CardView mCardSignUp;
     private String mName;
+    float v = 0;
 
 
 
@@ -59,6 +63,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         ButterKnife.bind(this);
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
+
+        mCardSignUp.setTranslationY(300);
+        mCardSignUp.setAlpha(v);
+        mCardSignUp.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
 
 //        mIdLoginButton = (Button) findViewById(R.id.idLoginButton);
 //        mIdLoginButton.setOnClickListener(new View.OnClickListener(){
