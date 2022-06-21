@@ -53,12 +53,7 @@ public class FavoritesActivity extends AppCompatActivity {
     TextView mErrorTextView;
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
-
-
-
-
-
-
+    float v = 0;
 
 
 
@@ -69,8 +64,9 @@ public class FavoritesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorites);
         ButterKnife.bind(this);
 
-
-
+        mRecyclerView.setTranslationY(300);
+        mRecyclerView.setAlpha(v);
+        mRecyclerView.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
 
 
 
