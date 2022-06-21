@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/layout-land/activity_popular_movies.xml" value="0.3065412569474134" />
         <entry key="app/src/main/res/layout-land/favorites_list_item.xml" value="0.30739632321504917" />
         <entry key="app/src/main/res/layout-land/fragment_movies_detail.xml" value="0.3065412569474134" />
+        <entry key="app/src/main/res/layout-land/movie_list_item.xml" value="0.10431808465156049" />
         <entry key="app/src/main/res/layout-land/movie_list_item_drag.xml" value="0.10132598876953125" />
         <entry key="app/src/main/res/layout-land/movies_list_item.xml" value="0.3065412569474134" />
         <entry key="app/src/main/res/layout-land/popular_list_item.xml" value="0.315435638362498" />
