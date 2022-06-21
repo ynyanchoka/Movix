@@ -64,9 +64,9 @@ public class FavoritesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorites);
         ButterKnife.bind(this);
 
-        mRecyclerView.setTranslationY(300);
+        mRecyclerView.setTranslationX(300);
         mRecyclerView.setAlpha(v);
-        mRecyclerView.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+        mRecyclerView.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(400).start();
 
 
 
