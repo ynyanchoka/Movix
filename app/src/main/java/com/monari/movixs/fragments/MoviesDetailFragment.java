@@ -10,6 +10,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +49,7 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
 
     private Result mMovies;
     private MoviesDetailsResponse mMovie;
+    float v = 0;
 
     public MoviesDetailFragment() {
         // Required empty public constructor
@@ -67,6 +70,12 @@ public class MoviesDetailFragment extends Fragment implements View.OnClickListen
         assert getArguments() != null;
         mMovies = Parcels.unwrap(getArguments().getParcelable("movie"));
         mMovie = Parcels.unwrap(getArguments().getParcelable("detail"));
+
+//        mPosterPathImageView.setTranslationY(300);
+//        mPosterPathImageView.setAlpha(v);
+//        mPosterPathImageView.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+
+
     }
 
 

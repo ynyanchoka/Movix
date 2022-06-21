@@ -2,6 +2,7 @@ package com.monari.movixs.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -35,6 +36,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.idUserPassword) EditText midUserPassword;
     @BindView(R.id.firebaseProgressBar) ProgressBar mSignInProgressBar;
     @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
+    @BindView(R.id.cardSignUp)
+    CardView mCardSignUp;
 
     Button idLoginButton;
     EditText idUserEmail;
@@ -42,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText idUserPassword;
 
     private FirebaseAuth mAuth;
+    float v = 0;
 
 
 
@@ -50,6 +54,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+        mCardSignUp.setTranslationY(300);
+        mCardSignUp.setAlpha(v);
+        mCardSignUp.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -68,16 +76,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         };
 
-
-//        mSignUpButton = (Button) findViewById(R.id.signUpButton);
-//        mSignUpButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-//                startActivity(intent);
-//
-//            }
-//        });
 
         midLoginButton.setOnClickListener(this);
         mSignUpButton.setOnClickListener(this);
