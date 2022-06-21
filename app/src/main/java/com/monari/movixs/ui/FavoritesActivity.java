@@ -2,6 +2,7 @@ package com.monari.movixs.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,6 +47,7 @@ public class FavoritesActivity extends AppCompatActivity {
     TextView mErrorTextView;
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
+
 
 
 
@@ -125,6 +127,7 @@ public class FavoritesActivity extends AppCompatActivity {
         };
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(mRecyclerView);
         mRecyclerView.setAdapter(mFirebaseAdapter);
     }
 
@@ -149,6 +152,22 @@ public class FavoritesActivity extends AppCompatActivity {
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
     }
+//
+//    ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT){
+//
+//
+//        @Override
+//        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+//            return false;
+//        }
+//
+//        @Override
+//        public void onSwiped (@NonNull RecyclerView.ViewHolder viewHolder,int i){
+//            mMovieReference.removeValue(viewHolder.getItemViewType());
+//            mFirebaseAdapter.notifyItemRemoved();
+//
+//        }
+//    }
 
 
 }
