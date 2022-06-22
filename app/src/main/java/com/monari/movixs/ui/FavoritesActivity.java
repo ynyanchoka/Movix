@@ -17,8 +17,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -64,9 +66,17 @@ public class FavoritesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorites);
         ButterKnife.bind(this);
 
-        mRecyclerView.setTranslationX(300);
-        mRecyclerView.setAlpha(v);
-        mRecyclerView.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+//        mRecyclerView.setTranslationX(300);
+//        mRecyclerView.setAlpha(v);
+//        mRecyclerView.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+
+//        mRecyclerView.animate().alpha(1).setDuration(1000).setInterpolator(new DecelerateInterpolator()).withEndAction(new Runnable() {
+//            @Override
+//            public void run() {
+//                mRecyclerView.animate().alpha(0).setDuration(1000).setInterpolator(new AccelerateInterpolator()).start();
+//            }
+//        }).start();
+//        mRecyclerView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
 
 
 
@@ -111,13 +121,13 @@ public class FavoritesActivity extends AppCompatActivity {
                 {
                     case R.id.search:
                         startActivity(new Intent(getApplicationContext(), MoviesActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                         return true;
                     case R.id.favorites:
                         return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(),PopularMoviesActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                         return true;
                 }
                 return false;

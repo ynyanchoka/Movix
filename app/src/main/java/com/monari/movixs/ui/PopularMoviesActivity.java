@@ -89,13 +89,13 @@ public class PopularMoviesActivity extends AppCompatActivity {
                 {
                     case R.id.search:
                         startActivity(new Intent(getApplicationContext(), MoviesActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                         return true;
                     case R.id.home:
                         return true;
                     case R.id.favorites:
                         startActivity(new Intent(getApplicationContext(),FavoritesActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                         return true;
                 }
                 return false;

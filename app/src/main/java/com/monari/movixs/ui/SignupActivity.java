@@ -68,25 +68,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         mCardSignUp.setAlpha(v);
         mCardSignUp.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
 
-//        mIdLoginButton = (Button) findViewById(R.id.idLoginButton);
-//        mIdLoginButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//
-//
-//                if (v == mIdLoginButton) {
-//                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                    startActivity(intent);
-//                    finish();
-//                }
-//
-//                if (v == midSignUpButton) {
-//                    createNewUser();
-//                }
-//
-//            }
-//        });
 
 
         //lead to login activity

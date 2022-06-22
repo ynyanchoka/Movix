@@ -5,13 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:id="@+id/constraintLayout"
     android:background="#18172e">
-<!--    <ImageView-->
-<!--        android:id="@+id/imageHome"-->
-<!--        android:layout_width="411dp"-->
-<!--        android:layout_height="941dp"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:src="@drawable/p14097646_p_v12_at" />-->
+
 
 
     <TextView

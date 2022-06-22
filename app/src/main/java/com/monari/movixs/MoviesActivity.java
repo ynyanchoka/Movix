@@ -121,13 +121,13 @@ public class MoviesActivity extends AppCompatActivity implements View.OnClickLis
                 {
                     case R.id.favorites:
                         startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                         return true;
                     case R.id.search:
                         return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), PopularMoviesActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
                         return true;
                 }
                 return false;
