@@ -2,6 +2,15 @@
 # Movix
 By Ymelda Monari
 
+## Table of contents
++ [Project Description](#project-description)
++ [Getting Started](#getting-started)
++ [Running the tests](#running-the-tests)
++ [Built With](#built-With)
++ [Authors](#authors)
++ [Contact Information](#contact-information)
++ [Copyright and License](#copyright-and-license-information)
+
 # Project Description
 This and android app written by java that allows a user to search for movies. They can also see the trending movies and add them to favorites if they wish to do so.
 

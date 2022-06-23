@@ -26,15 +26,13 @@ public class MainActivity extends AppCompatActivity {
     TextView mMotto;
     float v = 0;
 
-//    private Button mGetstartedButton;
+
     private static int SPLASH_SCREEN_TIME_OUT=3000;
 
-    Animation anim;
-    TextView textView;
-    Layout layout;
 
 
-    @SuppressLint("ResourceType")
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//run all of the default behaviors for an activity
@@ -49,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //This method is used so that your splash activity
         //can cover the entire screen.
-
-
 
 
 
